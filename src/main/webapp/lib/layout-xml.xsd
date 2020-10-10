@@ -119,6 +119,10 @@
         <xs:attribute type="layout_dimension" name="layout_height" default="wrap_content"/>
         <xs:attribute type="xs:string" name="background" use="optional"/>
         <xs:attribute type="xs:string" name="onClick" use="optional"/>
+
+        <xs:attribute type="xs:string" name="cssClassList" use="optional"/>
+        <xs:attribute type="xs:string" name="audioClick" use="optional"/>
+        <xs:attribute type="xs:string" name="audioAdove" use="optional"/>
         
         <xs:attribute ref="layout_gravity" use="optional"/>
         <xs:attribute ref="tooltip" use="optional"/>
@@ -185,17 +189,6 @@
         <xs:complexContent mixed="false">
             <xs:extension base="View">
                 <xs:group minOccurs="0" maxOccurs="unbounded" ref="any-view" />
-                <xs:attribute type="text_style" name="textStyle"/>
-                <xs:attribute type="xs:string" name="text" use="optional"/>
-                <xs:attribute type="xs:string" name="textColor" use="optional"/>
-                <xs:attribute type="xs:string" name="hint" use="optional"/>
-                <xs:attribute type="xs:string" name="textSize" use="optional"/>
-                <xs:attribute type="xs:string" name="cssClassList" use="optional"/>
-                <xs:attribute type="xs:integer" name="ems" use="optional"/>
-                <xs:attribute type="xs:integer" name="lines" use="optional"/>
-                <xs:attribute type="xs:integer" name="maxEms" use="optional"/>
-                <xs:attribute type="xs:integer" name="maxLines" use="optional"/>
-                <xs:attribute type="xs:integer" name="maxLength" use="optional"/>
                 
                 <xs:attribute type="xs:string" name="drawableLeft" use="optional"/>
                 <xs:attribute type="xs:string" name="drawableTop" use="optional"/>
@@ -248,6 +241,13 @@
     <xs:complexType name="Button">
         <xs:complexContent mixed="false">
             <xs:extension base="TextView"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- LinkButton -->
+    <xs:element name="LinkButton" type="LinkButton"/>
+    <xs:complexType name="LinkButton">
+        <xs:complexContent mixed="false">
+            <xs:extension base="Button"/>
         </xs:complexContent>
     </xs:complexType>
     <!-- ViewGroup -->

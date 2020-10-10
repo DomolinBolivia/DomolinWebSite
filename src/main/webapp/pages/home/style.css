@@ -1,0 +1,13 @@
+<style>
+    .botonDispositivo {
+        transition: all .1s ease-in-out;
+        color: #D6EFFF;
+        
+    }
+    .botonDispositivo:hover {
+        transform: scale(0.9);
+        filter: drop-shadow(0px 0px 10px #27EDEC);
+    }
+    .botonDispositivo:active {
+    }
+</style>

@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Start Page</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/dist/cuyjs.min.js"></script>
-<script type="text/javascript" src="main.page/MainPage.js"></script>
-<script type="text/javascript">
-            Resource.waitToLoadAllResources().then(() => {
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- repositorio de codigo fuente de la liberia CuyJs-->
+         <script type="text/javascript" src="lib/cuyjs.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="lib/style.css" />
+        <!--<script type="text/javascript" src="https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/dist/cuyjs.min.js"></script>-->
+        <!--Cargando controlador principal-->
+        <script type="text/javascript">
+            (async () => {
+                //tema por defecto
+                await Resource.loadTheme("lib/default_theme.xml");
+                //<!--Controlador de la pagina principal-->
+                await Resource.import("pages/MainPageController.js");
                 try {
-                    PageManager.startAplicationSync('MainPage');
+                    await PageManager.startAplicationSync('MainPageController');
                 } catch (error) {
-                    console.log("Error al desplegar pagina",error);
+                    console.log("Error al desplegar pagina", error);
                 }
-            });
+            })();
         </script>
-</head>
-<body></body>
+    </head>
+    <body></body>
 </html>
