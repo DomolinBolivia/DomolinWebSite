@@ -5,7 +5,7 @@
         <item name="background">#081D30</item>
     </style>
     <style name="TextViewStyle" parent="TextView">
-        
+        <item name="textColor">#D2D3D5</item>
     </style>
     <style name="ButtonStyle" parent="Button">
         <item name="background">lib/imgs/bg_button.9.png</item>
@@ -17,6 +17,10 @@
     <style name="LinkButtonStyle" parent="LinkButton">
         <item name="singleLine">true</item>
         <item name="textColor">#D6EFFF</item>
+        <item name="audioAdove">lib/sounds/adove.mp3</item>
+        <item name="audioClick">lib/sounds/click.mp3</item>
+    </style>
+    <style name="ImageButonStyle" parent="ImageButton">
         <item name="audioAdove">lib/sounds/adove.mp3</item>
         <item name="audioClick">lib/sounds/click.mp3</item>
     </style>

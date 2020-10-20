@@ -13,7 +13,7 @@
 .Button:hover {
     filter: drop-shadow(0px 0px 10px #27EDEC);
     color: black;
-    transform: scale(1.05);
+    transform: scale(1.1);
     cursor: url('imgs/ic_cursor_hand.png'), auto;
 }
 
@@ -34,6 +34,19 @@
     cursor: url('imgs/ic_cursor_hand.png'), auto;
 }
 .LinkButton:active {
+    cursor: url('imgs/ic_cursor_touch.png'), auto;
+    transform: scale(0.8);
+}
+
+.ImageButton {
+    transition: all .1s ease-in-out;
+}
+.ImageButton:hover {
+    cursor: url('imgs/ic_cursor_hand.png'), auto;
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 10px #27EDEC);
+}
+.ImageButton:active {
     cursor: url('imgs/ic_cursor_touch.png'), auto;
     transform: scale(0.8);
 }
