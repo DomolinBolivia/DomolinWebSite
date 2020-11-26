@@ -1,20 +1,9 @@
+/* global FileChooser */
+
 class DownloadPage extends Page {
     // @Override
     async onCreate(intent) {
-        this.setContentView("pages/downloads/download_page.xml");
-    }
-
-    // @Override
-    async onStart() {
-    }
-
-    async onPause(){
-    }
-
-    async onDestroy(){
-    }
-
-    async onResume(){
+        this.setContentView("pages/downloads/Downloadlayout.xml");
     }
 
     async onClickHome(){

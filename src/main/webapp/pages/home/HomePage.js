@@ -6,7 +6,7 @@
 class HomePage extends Page {
     // @Override
     async onCreate(intent) {
-        this.setContentView("pages/home/home_page.xml");
+        this.setContentView("pages/home/HomeLayout.xml");
         this.fotoActual = 1;
         this.NRO_IMAGENES = 4;
         this.timerFotos = new Timer();

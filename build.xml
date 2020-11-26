@@ -5,6 +5,8 @@
             <pathelement location="ant_libs${file.separator}ant-contrib-0.6.jar"/>
         </classpath>
     </taskdef>
+    <property name="bashExt" value="bat"/>
+    <property name="scriptBashExt" value="cmd"/>
         
     <target name="start_dev">
         <echo level="info" message="Iniciando"/>
@@ -13,12 +15,20 @@
         <propertyregex property="mavenHome"
                        input="${mavenHome}"
                        regexp="\.\."
-                       replace="mvn.cmd"
+                       replace=""
                        global="true"
                        override="true"
                        casesensitive="true"/>
-        <!-- Fin qutiar guion de mavenHome-->
-        <antcall target="undeploy-war" />
+        <!-- Quitando bin si existe a la ruta del mavenHome -->
+        <propertyregex property="mavenHome"
+                       input="${mavenHome}"
+                       regexp="\\bin\\"
+                       replace=""
+                       global="true"
+                       override="true"
+                       casesensitive="true"/>
+        <var name="mavenHome" value="${mavenHome}${file.separator}bin${file.separator}mvn.${scriptBashExt}" />
+        <antcall target="undeploy-war" /> 
         <antcall target="compile-war" />
         <antcall target="deploy-war" />
         <antcall target="show-in-brouser" />
@@ -31,21 +41,20 @@
     </target>
     <target name="undeploy-war">
         <echo level="info" message="Quitando Deploy WAR"/>
-        <exec dir="${basedir}" executable="${mavenHome}">
-        <!--<exec dir="${basedir}${file.separator}target${file.separator}domolin.war" executable="${mavenHome}">-->
-            <arg line="wildfly:undeploy" />
+        <exec dir="${basedir}${file.separator}target" executable="${wildFlyPath}${file.separator}bin${file.separator}jboss-cli.${bashExt}">
+            <arg line="--connect --commands=&quot;undeploy ${warName}.war&quot;" />
         </exec>
     </target>
     <target name="deploy-war">
         <echo level="info" message="Deployando WAR"/>
-        <exec dir="${basedir}" executable="${mavenHome}">
-            <arg line="wildfly:deploy" />
+        <exec dir="${basedir}${file.separator}target" executable="${wildFlyPath}${file.separator}bin${file.separator}jboss-cli.${bashExt}">
+            <arg line="--connect --commands=&quot;deploy ${warName}.war&quot;" />
         </exec>
     </target>
     <target name="show-in-brouser">
         <echo level="info" message="Mostrando en navegador"/>
         <exec dir="${basedir}" executable="explorer"  spawn="false">
-            <arg line="http://localhost:8080/DomolinWebSite/" />
+            <arg line="http://localhost:8080/${warName}/" />
         </exec>
     </target>
 </project>

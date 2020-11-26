@@ -4,49 +4,50 @@
 }
 
 * {
-    font-family: 'SFTransRobotics'
+    font-family: 'SFTransRobotics';
+    font-weight: normal;
 }
 
-.Button {
-    transition: all .1s ease-in-out;
-}
-.Button:hover {
-    filter: drop-shadow(0px 0px 10px #27EDEC);
-    color: black;
-    transform: scale(1.1);
-    cursor: url('imgs/ic_cursor_hand.png'), auto;
-}
-
-.Button:active {
-    cursor: url('imgs/ic_cursor_touch.png'), auto;
-    transform: scale(0.8);
-}
-
-.LinkButton {
+.Button, .RadioButton, .ImageButton, .LinkButton, .Spinner, .OptionItem{
     transition: all .1s ease-in-out;
     font-size: 14px;
 }
-.LinkButton:hover {
-    background-color:#5cbf2a;
-    text-shadow:0px 0px 20px white;
-    font-size: 16px;
+
+.Button:hover, .RadioButton:hover, .ImageButton:hover, .LinkButton:hover, .Spinner:hover, .OptionItem:hover{
+    filter: drop-shadow(0px 0px 10px #27EDEC);
     color: black;
+    transform: scale(1.1);
+    text-shadow:0px 0px 20px white;
     cursor: url('imgs/ic_cursor_hand.png'), auto;
 }
-.LinkButton:active {
+
+.Button:active, .RadioButton:active, .ImageButton:active, .LinkButton:active, .Spinner:active, .OptionItem:active{
     cursor: url('imgs/ic_cursor_touch.png'), auto;
     transform: scale(0.8);
 }
 
-.ImageButton {
-    transition: all .1s ease-in-out;
+.EditText, .Password{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #FEFEFE;
+    border-width: 2px;
+    background: rgba(8, 24, 40, 0.5);;
+    color: #AFC0C8;
+    font-size: 13px;
+    transition: all .2s ease-in-out;
+    box-sizing: border-box;
+
+    caret-color: #FDD10F;
 }
-.ImageButton:hover {
-    cursor: url('imgs/ic_cursor_hand.png'), auto;
+
+.EditText:hover, .Password:hover {
+    cursor: url('imgs/ic_cursor_write.png'), auto;
     transform: scale(1.1);
     filter: drop-shadow(0px 0px 10px #27EDEC);
 }
-.ImageButton:active {
-    cursor: url('imgs/ic_cursor_touch.png'), auto;
-    transform: scale(0.8);
+.EditText:focus, .Password:focus {
+    cursor: url('imgs/ic_cursor_caret.png') , auto;
+    outline: none !important;
+    background: #081828;
+    outline-width: 0;
 }

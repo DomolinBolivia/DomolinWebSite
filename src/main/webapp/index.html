@@ -4,19 +4,20 @@
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <script type="text/javascript" src="lib/cuyjs.min.js"></script>
+        <script src="lib/cuyjs.min.js"></script>
         <link rel="stylesheet" type="text/css" href="lib/style.css" />
-        <link rel="stylesheet" type="text/css" href="assets/styles/controles.css" />
-        <script type="text/javascript">
+        <script>
             (async () => {
-                await Resource.loadTheme("lib/default_theme.xml");
-                // await Resource.waitToLoadAllResources();
-                await Resource.import("pages/home/HomePage.js");
-                try {
-                    await PageManager.defaultRootPage('HomePage');
-                } catch (error) {
-                    console.log("Error al desplegar Pagina principal",error);
-                }
+//                await Resource.import('config/Colors.js');
+//                await Resource.import('config/Constants.js');
+                let manifest = {
+                    theme: "lib/default_theme.xml",
+                    pages: [
+                        { name: "pages/home/HomePage.js", category: "ROOT", screenOrientation: "portrait" },
+                        { name: "pages/downloads/DownloadPage.js", category: "LAUNCHER" }
+                    ]
+                };
+                await PageManager.startApp(manifest);
             })();
         </script>
     </head>
