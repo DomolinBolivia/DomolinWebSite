@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FrameLayout
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xsi:noNamespaceSchemaLocation='../../lib/layout-xml.xsd'
+    xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/src/layout-xml.xsd'
     width="match_parent"
     height="match_parent"
     background="#373435">
@@ -14,16 +14,14 @@
         <ImageView
             height="90px"
             width="90px"
-            src="assets/imgs/icon_medium.png"
-        />
+            src="assets/imgs/icon_medium.png"/>
         <TextView
             text="Domolin"
             textColor="#E8E88A"
             textSize="50px"
             shadowColor="#E8E88A"
             shadowRadius="10"
-            layoutGravity="bottom"
-            />
+            layoutGravity="bottom"/>
     </LinearLayout>
     <LinearLayout
         width="wrap_content"
@@ -36,45 +34,34 @@
             text="Domótica e IOT"
             marginLeft="10px"
             marginRight="10px"
-            onClick="onClickHome"
-        />
+            onClick="onClickHome"/>
         <LinkButton
             text="Productos"
             marginLeft="10px"
-            marginRight="10px"
-        />
+            marginRight="10px"/>
         <LinkButton
             text="Descargas"
             marginLeft="10px"
             marginRight="10px"
-            cssClassList="textSelected"
-        />
+            cssClassList="textSelected"/>
         <LinkButton
             text="Acerca de Nosotros"
             marginLeft="10px"
-            marginRight="10px"
-        />
+            marginRight="10px"/>
     </LinearLayout>
     <LinearLayout
         orientation="horizontal"
         layoutGravity="center">
         <LinearLayout
             orientation="vertical">
-            <FrameLayout
-                background="pages/downloads/imgs/bg_barra_descargar.png"
-                paddingLeft="65px"
-                paddingLight="120px"
-                width="wrap_content"
-                height="wrap_content"
-                marginBottom="20px">
-                <TextView
-                    text="SmartHub App Windows"
-                    textColor="#27EDEC"
-                    textSize="14px"
-                    singleLine="true"
-                    padding="10px"
-                />
-            </FrameLayout>
+            <TextView
+                background="pages/downloads/imgs/bg_barra_descargar.9.png"
+                text="SmartHub App Windows"
+                textColor="#27EDEC"
+                textSize="14px"
+                singleLine="true"
+                width="350px"
+                marginBottom="20px"/>
             <LinearLayout
                 orientation="vertical"
                 background = "pages/downloads/imgs/bg_panel_app.9.png">
@@ -83,8 +70,7 @@
                     width="150px"
                     height="150px"
                     margin="40px"
-                    layoutGravity="center_horizontal"
-                    />
+                    layoutGravity="center_horizontal"/>
                 <RelativeLayout
                     marginLeft="20px"
                     marginRight="20px">
@@ -92,20 +78,17 @@
                         id="imgDownloadAppWindows"
                         src="pages/downloads/imgs/ic_windows.png"
                         width="80px"
-                        height="70px"
-                        />
+                        height="70px"/>
                     <LinkButton
                         id="linkBtnVideoWindows"
                         text="Video de instalación"
                         toRightOf="imgDownloadAppWindows"
-                        drawableLeft="assets/imgs/ic_youtube.png"
-                        />
+                        drawableLeft="assets/imgs/ic_youtube.png"/>
                     <LinkButton
                         text="Manual de usuario"
                         toRightOf="imgDownloadAppWindows"
                         below="linkBtnVideoWindows"
-                        drawableLeft="assets/imgs/ic_manual.png"
-                        />
+                        drawableLeft="assets/imgs/ic_manual.png"/>
                 </RelativeLayout>
             </LinearLayout>
             <Button
@@ -116,22 +99,16 @@
                 onClick="onClickDescargarWindows"/>
         </LinearLayout>
         <LinearLayout
+            marginLeft="20px"
             orientation="vertical">
-            <FrameLayout
-                background="pages/downloads/imgs/bg_barra_descargar.png"
-                paddingLeft="65px"
-                paddingLight="120px"
-                width="wrap_content"
-                height="wrap_content"
-                marginBottom="20px">
-                <TextView
-                    text="SmartHub App Linux"
-                    textColor="#27EDEC"
-                    textSize="14px"
-                    singleLine="true"
-                    padding="10px"
-                />
-            </FrameLayout>
+            <TextView
+                background="pages/downloads/imgs/bg_barra_descargar.9.png"
+                text="SmartHub App Linux"
+                textColor="#27EDEC"
+                textSize="14px"
+                singleLine="true"
+                width="350px"
+                marginBottom="20px"/>
             <LinearLayout
                 orientation="vertical"
                 background = "pages/downloads/imgs/bg_panel_app.9.png">
@@ -140,8 +117,7 @@
                     width="150px"
                     height="150px"
                     margin="40px"
-                    layoutGravity="center_horizontal"
-                    />
+                    layoutGravity="center_horizontal" />
                 <RelativeLayout
                     marginLeft="20px"
                     marginRight="20px">
@@ -149,20 +125,17 @@
                         id="imgDownloadAppWindows"
                         src="pages/downloads/imgs/ic_linux.png"
                         width="80px"
-                        height="70px"
-                        />
+                        height="70px" />
                     <LinkButton
                         id="linkBtnVideoWindows"
                         text="Video de instalación"
                         toRightOf="imgDownloadAppWindows"
-                        drawableLeft="assets/imgs/ic_youtube.png"
-                        />
+                        drawableLeft="assets/imgs/ic_youtube.png" />
                     <LinkButton
                         text="Manual de usuario"
                         toRightOf="imgDownloadAppWindows"
                         below="linkBtnVideoWindows"
-                        drawableLeft="assets/imgs/ic_manual.png"
-                        />
+                        drawableLeft="assets/imgs/ic_manual.png" />
                 </RelativeLayout>
             </LinearLayout>
             <Button
@@ -180,10 +153,7 @@
                 textColor="#27EDEC"
                 marginBottom="30px"/>
             <TextView
-                text="La aplicación SmartHub se instalara en su computadora 
-local, necesaria para la conectividad con el servidor Domolin
-para la interconectividad entre los dispositivos instalados en su hogar,
-negocio u empresa. 
+                text="La aplicación SmartHub se instalara en su computadora local, necesaria para la conectividad con el servidor Domolin para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
 &#13;&#10;
 &#13;&#10;
 &#13;&#10;
@@ -202,8 +172,6 @@ a realizar entre los dispositivos."
             <TextView
                 text="79642513"
                 singleLine="true"/>
-        >
-
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
