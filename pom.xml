@@ -26,11 +26,11 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>domolin</groupId>
             <artifactId>IotServerDataBase</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>utilities</groupId>
             <artifactId>IotUtilities</artifactId>

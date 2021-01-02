@@ -17,6 +17,6 @@ public class SentinelAppDownloadFacade {
         // Escribiendo propiedades de la aplicacion 
         Properties properties = new Properties();
         
-        
+        return null;
     }
 }
