@@ -102,8 +102,8 @@
                 layoutGravity="center_horizontal">
                 <FrameLayout
                     id="fraTextoFoto1"
-                    alignParentLeft="30px"
-                    alignParentRight="30px"
+                    marginLeft="10px"
+                    marginRight="10px"
                     width="50px"
                     height="50px"
                     cssClassList="numeroSeleccionado">
@@ -115,8 +115,8 @@
                 </FrameLayout>
                 <FrameLayout
                     id="fraTextoFoto2"
-                    alignParentLeft="30px"
-                    alignParentRight="30px"
+                    marginLeft="10px"
+                    marginRight="10px"
                     width="50px"
                     height="50px">
                     <TextView
@@ -127,8 +127,8 @@
                 </FrameLayout>
                 <FrameLayout
                     id="fraTextoFoto3"
-                    alignParentLeft="30px"
-                    alignParentRight="30px"
+                    marginLeft="10px"
+                    marginRight="10px"
                     width="50px"
                     height="50px">
                     <TextView
@@ -139,8 +139,8 @@
                 </FrameLayout>
                 <FrameLayout
                     id="fraTextoFoto4"
-                    alignParentLeft="30px"
-                    alignParentRight="30px"
+                    marginLeft="10px"
+                    marginRight="10px"
                     width="50px"
                     height="50px">
                     <TextView
