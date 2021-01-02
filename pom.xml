@@ -17,8 +17,19 @@
         
         <wildfly-path>C:\Program Files\wildfly-20.0.1.Final</wildfly-path>
         <wildfly-war-name>DomolinWebSite</wildfly-war-name>
+        <ant-target>${ant-target}</ant-target>
     </properties>
-    
+    <profiles>
+        <profile>
+            <id>default</id>
+            <properties>
+                <ant-target>start_dev</ant-target>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -114,7 +125,7 @@
                                 <property name="wildFlyPath" value="${wildfly-path}"/>
                                 <property name="warName" value="${wildfly-war-name}"/>
                                 <ant antfile="${basedir}/build.xml">
-                                    <target name="start_dev" />
+                                    <target name="${ant-target}" />
                                 </ant>
                             </target>
                         </configuration>
@@ -126,6 +137,7 @@
             </plugin>
             <!--mvn antrun:run@ant_builder-->
             <!--mvn fizzed-watcher:run-->
+            <!--mvn antrun:run@ant_builder -Dant-target=deploy-war-->
         </plugins>
     </build>
 </project>
