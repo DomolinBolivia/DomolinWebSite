@@ -54,7 +54,7 @@
     <target name="show-in-brouser">
         <echo level="info" message="Mostrando en navegador"/>
         <exec dir="${basedir}" executable="explorer"  spawn="false">
-            <arg line="http://localhost:8080/${warName}/" />
+            <arg line="http://localhost:8080/" />
         </exec>
     </target>
 </project>

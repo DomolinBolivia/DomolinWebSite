@@ -1,4 +1,4 @@
-/* global FileChooser */
+/* global FileChooser, Toast */
 
 class DownloadPage extends Page {
     // @Override
@@ -11,10 +11,11 @@ class DownloadPage extends Page {
     }
 
     async onClickDescargarWindows(){
-        await FileChooser.showSaveFile("smartHubWindows.bat","pages/downloads/app/smartHubWindows.bat");
+        Toast.makeText(this,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
+        await FileChooser.showSaveFile("services/sentinel_download/windows");
     }
 
     async onClickDescargarLinux(){
-        await FileChooser.showSaveFile("smartHubWindows.bat","pages/downloads/app/smartHubWindows.bat");
+        await FileChooser.showSaveFile("pages/downloads/app/smartHubWindows.bat");
     }
 };

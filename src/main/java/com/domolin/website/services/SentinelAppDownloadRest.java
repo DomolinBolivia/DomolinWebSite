@@ -1,32 +1,30 @@
 package com.domolin.website.services;
 
-import java.io.File;
+import com.domolin.website.facade.SentinelAppDownloadFacade;
 import java.io.IOException;
-import java.util.Properties;
-import java.util.UUID;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Context;
+import org.apache.maven.shared.invoker.MavenInvocationException;
 
 @Path("sentinel_download")
 public class SentinelAppDownloadRest {
     @Inject
+    private SentinelAppDownloadFacade sentinelAppDownloadFacade;
     
     @GET
+    @Path("windows")
     @Produces("application/zip")
-    public Response downloadApp() throws IOException{
-        // Generamos el Zip ejecutable
+    public void downloadApp(@Context HttpServletResponse response) throws IOException, MavenInvocationException{
+        String code = sentinelAppDownloadFacade.generateCode();
         
-        // Creamos una carpeta temporal 
-        File file = File.createTempFile("sentilen_app",UUID.randomUUID().toString());
-        System.out.println("RUTA: "+file.getAbsolutePath());
-        
-        // Escribiendo propiedades de la aplicacion 
-        Properties properties = new Properties();
-        return Response
-                .ok("ping")
-                .build();
+        response.setContentType("application/zip");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_"+code+"\"");
+        response.setStatus(200);
+        sentinelAppDownloadFacade.generateSentinelApp(code,response.getOutputStream());
+        response.flushBuffer();
     }
 }
