@@ -24,7 +24,7 @@ public class SentinelAppDownloadRest {
         response.setContentType("application/zip");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_"+code+"\"");
         response.setStatus(200);
-        sentinelAppDownloadFacade.generateSentinelApp(code,response.getOutputStream());
+        sentinelAppDownloadFacade.generateSentinelApp(code,"windows",response.getOutputStream());
         response.flushBuffer();
     }
 }

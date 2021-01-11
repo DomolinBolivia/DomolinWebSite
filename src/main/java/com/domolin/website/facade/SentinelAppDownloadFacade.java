@@ -48,7 +48,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         return code;
     }
 
-    public void generateSentinelApp(String code, OutputStream outputStream) throws IOException, MavenInvocationException {
+    public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException {
         // Compilamos el proyecto sentinela
         Path tempApp = Files.createTempDirectory("sentinel_app_");
         executeMavenCompilationSentinel(tempApp);
@@ -67,7 +67,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         // Generamos el Zip ejecutable
         // Creamos una carpeta temporal
         Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
-        executeMavenCompilationInstaller(code, pathDirInstaller);
+        executeMavenCompilationInstaller(code, pathDirInstaller,os);
 
         // Copiamos el sentinela a la compilacion
         Files.move(pathSentinelApp, pathDirInstaller.resolve(appSentinelCompiledName), StandardCopyOption.REPLACE_EXISTING);
@@ -104,7 +104,7 @@ public class SentinelAppDownloadFacade implements Serializable {
 //        appDownloadFacade.zipDirectory(fosZip, pathFolder);
 //    }
 
-    private synchronized void executeMavenCompilationInstaller(String code, Path path) throws MavenInvocationException {
+    private synchronized void executeMavenCompilationInstaller(String code, Path path,String os) throws MavenInvocationException {
         InvocationRequest request = new DefaultInvocationRequest();
         request.setOffline(true);
         request.setPomFile(new File(pathInstallerProyect + File.separator + "pom.xml"));
@@ -113,6 +113,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         Properties properties = new Properties();
         properties.put("code", code);
         properties.put("directory", path.toFile().getAbsolutePath());
+        properties.put("os",os);
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
