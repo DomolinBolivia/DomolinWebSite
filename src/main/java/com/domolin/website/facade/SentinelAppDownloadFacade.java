@@ -6,17 +6,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Properties;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import org.apache.maven.shared.invoker.DefaultInvocationRequest;
-import org.apache.maven.shared.invoker.DefaultInvoker;
-import org.apache.maven.shared.invoker.InvocationRequest;
-import org.apache.maven.shared.invoker.Invoker;
-import org.apache.maven.shared.invoker.MavenInvocationException;
 import com.domolin.util.util.ConfigParam;
-import com.domolin.util.util.OsUtilities;
+import com.domolin.website.util.MavenUtilities;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.nio.file.StandardCopyOption;
@@ -24,8 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import org.apache.maven.shared.invoker.InvocationOutputHandler;
-import org.apache.maven.shared.invoker.InvocationResult;
+import org.apache.maven.shared.invoker.MavenInvocationException;
 
 @Stateless
 public class SentinelAppDownloadFacade implements Serializable {
@@ -52,15 +45,8 @@ public class SentinelAppDownloadFacade implements Serializable {
     }
 
     public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException {
-        if(System.getenv("M2_HOME") == null)
-            throw new MavenInvocationException("No se encuentra la variable de entorno [M2_HOME="+System.getenv("M2_HOME")+"]. Establezca la variable de entorno con la ruta absoluta de MAVEN");
-        
-        File mavenFile = new File(System.getenv("M2_HOME")+File.separator+"bin"+File.separator+(OsUtilities.getOS()==OsUtilities.OS.WINDOWS?"mvn.cmd":"mvn"));
-        if(!mavenFile.exists())
-            throw new MavenInvocationException("No existe el archivo ["+mavenFile.getAbsolutePath()+"]");
         // Compilamos el proyecto sentinela
-        Path tempApp = Files.createTempDirectory("sentinel_app_");
-        executeMavenCompilationSentinel(tempApp,mavenFile);
+        Path tempApp = executeMavenCompilationSentinel();
 
         System.out.println("Obteniendo HASH de la apliaccion Centinela");
         // Obteniendo HASH del archivo generado
@@ -75,8 +61,7 @@ public class SentinelAppDownloadFacade implements Serializable {
 
         // Generamos el Zip ejecutable
         // Creamos una carpeta temporal
-        Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
-        executeMavenCompilationInstaller(code, pathDirInstaller,os,mavenFile);
+        Path pathDirInstaller = executeMavenCompilationInstaller(code,os);
 
         // Copiamos el sentinela a la compilacion
         Files.move(pathSentinelApp, pathDirInstaller.resolve(appSentinelCompiledName), StandardCopyOption.REPLACE_EXISTING);
@@ -86,28 +71,12 @@ public class SentinelAppDownloadFacade implements Serializable {
         sentinelAppDao.registerSentinelApp(code, hashSha512, 1, "1.0.0v");
     }
 
-    private synchronized void executeMavenCompilationSentinel(Path path,File mavenHome) throws MavenInvocationException {
-        InvocationRequest request = new DefaultInvocationRequest();
-//        request.setOffline(true);
-        System.out.println("Ruta Proyecto centinela: " + pathAppProyect);
-        request.setBaseDirectory(new File(pathAppProyect));
-//        request.setGoals(Arrays.asList("clean", "package"));
-        request.setGoals(Arrays.asList("package"));
-        request.setErrorHandler((String command) -> {
-            System.out.println("COMANDO: "+command);
-        });
-        
+    private synchronized Path executeMavenCompilationSentinel() throws MavenInvocationException, IOException {
+        Path tempApp = Files.createTempDirectory("sentinel_app_");
         Properties properties = new Properties();
-        properties.put("directory", path.toFile().getAbsolutePath());
-        request.setProperties(properties);
-
-        Invoker invoker = new DefaultInvoker();
-        invoker.setMavenExecutable(mavenHome);
-        invoker.setMavenHome(mavenHome.getParentFile());
-        System.out.println("Ruta Maven: "+mavenHome.getParentFile().getAbsolutePath());
-        InvocationResult invocationResult = invoker.execute(request);
-        if(invocationResult.getExitCode()==1)
-            throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
+        properties.put("directory", tempApp.toFile().getAbsolutePath());
+        MavenUtilities.executeMavenCommand(new File(pathAppProyect), properties);
+        return tempApp;
     }
 
 //    public static void main(String cors[]) throws MavenInvocationException, IOException {
@@ -125,28 +94,15 @@ public class SentinelAppDownloadFacade implements Serializable {
 //        appDownloadFacade.zipDirectory(fosZip, pathFolder);
 //    }
 
-    private synchronized void executeMavenCompilationInstaller(String code, Path path,String os, File mavenHome) throws MavenInvocationException {
-        InvocationRequest request = new DefaultInvocationRequest();
-        request.setOffline(true);
-        request.setBaseDirectory(new File(pathInstallerProyect));
-//        request.setGoals(Arrays.asList("clean", "install"));
-        request.setGoals(Arrays.asList("package"));
-        
+    private synchronized Path executeMavenCompilationInstaller(String code,String os) throws MavenInvocationException, IOException {
+        Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
         Properties properties = new Properties();
         properties.put("code", code);
-        properties.put("directory", path.toFile().getAbsolutePath());
+        properties.put("directory", pathDirInstaller.toFile().getAbsolutePath());
         properties.put("os",os);
-        request.setProperties(properties);
-        request.setErrorHandler((String command) -> {
-            System.out.println("COMANDO: "+command);
-        });
-
-        Invoker invoker = new DefaultInvoker();
-        invoker.setMavenExecutable(mavenHome);
-        invoker.setMavenHome(mavenHome.getParentFile());
-        InvocationResult invocationResult = invoker.execute(request);
-        if(invocationResult.getExitCode()==1)
-            throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
+        
+        MavenUtilities.executeMavenCommand(new File(pathInstallerProyect), properties);
+        return pathDirInstaller;
     }
 
     private void zipDirectory(OutputStream outputStream, Path directoryPath) throws IOException {
