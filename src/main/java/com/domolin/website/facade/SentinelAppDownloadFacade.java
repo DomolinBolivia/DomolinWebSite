@@ -16,6 +16,7 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 import com.domolin.util.util.ConfigParam;
+import com.domolin.util.util.OsUtilities;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.nio.file.StandardCopyOption;
@@ -89,10 +90,15 @@ public class SentinelAppDownloadFacade implements Serializable {
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
+        invoker.setMavenHome(new File(System.getenv("M2_HOME")));
+//        invoker.setMavenExecutable(new File(System.getenv("M2_HOME")+File.separator+(OsUtilities.getOS()==OsUtilities.OS.WINDOWS?"mvn.cmd":"mvn")));
         invoker.execute(request);
     }
-//
+
 //    public static void main(String cors[]) throws MavenInvocationException, IOException {
+//        
+//        System.out.println("MAVEN_HOME: "+System.getenv("M3_HOME"));
+//        
 //        SentinelAppDownloadFacade appDownloadFacade = new SentinelAppDownloadFacade();
 ////         appDownloadFacade.pathAppProyect = "D:\\proyectos\\smart_hub\\source\\Sentinel";
 ////         appDownloadFacade.executeMavenCompilationSentinel(new File("C:\\Users\\GIGABYTE\\AppData\\Local\\Temp\\sentinel_app_6026810746652537848\\").toPath());
@@ -110,6 +116,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         request.setPomFile(new File(pathInstallerProyect + File.separator + "pom.xml"));
 //        request.setGoals(Arrays.asList("clean", "install"));
         request.setGoals(Arrays.asList("package"));
+        
         Properties properties = new Properties();
         properties.put("code", code);
         properties.put("directory", path.toFile().getAbsolutePath());
@@ -117,6 +124,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
+        invoker.setMavenHome(new File(System.getenv("M2_HOME")));
         invoker.execute(request);
     }
 
