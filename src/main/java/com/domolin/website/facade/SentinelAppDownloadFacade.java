@@ -24,6 +24,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import org.apache.maven.shared.invoker.InvocationResult;
 
 @Stateless
 public class SentinelAppDownloadFacade implements Serializable {
@@ -98,7 +99,9 @@ public class SentinelAppDownloadFacade implements Serializable {
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
         invoker.setMavenHome(mavenHome.getParentFile());
-        invoker.execute(request);
+        InvocationResult invocationResult = invoker.execute(request);
+        if(invocationResult.getExitCode()==1)
+            throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
     }
 
 //    public static void main(String cors[]) throws MavenInvocationException, IOException {
@@ -132,7 +135,9 @@ public class SentinelAppDownloadFacade implements Serializable {
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
         invoker.setMavenHome(mavenHome.getParentFile());
-        invoker.execute(request);
+        InvocationResult invocationResult = invoker.execute(request);
+        if(invocationResult.getExitCode()==1)
+            throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
     }
 
     private void zipDirectory(OutputStream outputStream, Path directoryPath) throws IOException {
