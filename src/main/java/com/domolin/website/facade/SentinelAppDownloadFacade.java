@@ -24,6 +24,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import org.apache.maven.shared.invoker.InvocationOutputHandler;
 import org.apache.maven.shared.invoker.InvocationResult;
 
 @Stateless
@@ -89,9 +90,13 @@ public class SentinelAppDownloadFacade implements Serializable {
         InvocationRequest request = new DefaultInvocationRequest();
 //        request.setOffline(true);
         System.out.println("Ruta Proyecto centinela: " + pathAppProyect);
-        request.setPomFile(new File(pathAppProyect + File.separator + "pom.xml"));
+        request.setBaseDirectory(new File(pathAppProyect));
 //        request.setGoals(Arrays.asList("clean", "package"));
         request.setGoals(Arrays.asList("package"));
+        request.setErrorHandler((String command) -> {
+            System.out.println("COMANDO: "+command);
+        });
+        
         Properties properties = new Properties();
         properties.put("directory", path.toFile().getAbsolutePath());
         request.setProperties(properties);
@@ -99,6 +104,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
         invoker.setMavenHome(mavenHome.getParentFile());
+        System.out.println("Ruta Maven: "+mavenHome.getParentFile().getAbsolutePath());
         InvocationResult invocationResult = invoker.execute(request);
         if(invocationResult.getExitCode()==1)
             throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
@@ -122,7 +128,7 @@ public class SentinelAppDownloadFacade implements Serializable {
     private synchronized void executeMavenCompilationInstaller(String code, Path path,String os, File mavenHome) throws MavenInvocationException {
         InvocationRequest request = new DefaultInvocationRequest();
         request.setOffline(true);
-        request.setPomFile(new File(pathInstallerProyect + File.separator + "pom.xml"));
+        request.setBaseDirectory(new File(pathInstallerProyect));
 //        request.setGoals(Arrays.asList("clean", "install"));
         request.setGoals(Arrays.asList("package"));
         
@@ -131,6 +137,9 @@ public class SentinelAppDownloadFacade implements Serializable {
         properties.put("directory", path.toFile().getAbsolutePath());
         properties.put("os",os);
         request.setProperties(properties);
+        request.setErrorHandler((String command) -> {
+            System.out.println("COMANDO: "+command);
+        });
 
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
