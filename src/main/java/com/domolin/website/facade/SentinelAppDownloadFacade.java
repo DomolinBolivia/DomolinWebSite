@@ -97,7 +97,7 @@ public class SentinelAppDownloadFacade implements Serializable {
 
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
-//        invoker.setMavenExecutable(new File(System.getenv("M2_HOME")+File.separator+(OsUtilities.getOS()==OsUtilities.OS.WINDOWS?"mvn.cmd":"mvn")));
+        invoker.setMavenHome(mavenHome.getParentFile());
         invoker.execute(request);
     }
 
@@ -131,6 +131,7 @@ public class SentinelAppDownloadFacade implements Serializable {
 
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenHome);
+        invoker.setMavenHome(mavenHome.getParentFile());
         invoker.execute(request);
     }
 
