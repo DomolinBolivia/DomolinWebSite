@@ -50,6 +50,8 @@ public class SentinelAppDownloadFacade implements Serializable {
     }
 
     public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException {
+        if(System.getenv("M2_HOME") == null)
+            throw new MavenInvocationException("No se encuentra la variable de entorno [M2_HOME]. Establezca la variable de entorno con la ruta absoluta de MAVEN");
         // Compilamos el proyecto sentinela
         Path tempApp = Files.createTempDirectory("sentinel_app_");
         executeMavenCompilationSentinel(tempApp);
