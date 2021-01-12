@@ -53,7 +53,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         Path tempApp = Files.createTempDirectory("sentinel_app_");
         executeMavenCompilationSentinel(tempApp);
 
-        System.out.println("Obteniendo HASH");
+        System.out.println("Obteniendo HASH de la apliaccion Centinela");
         // Obteniendo HASH del archivo generado
         Path pathSentinelApp = tempApp.resolve(appSentinelCompiledName);
         byte[] byteJarSentinel = Files.readAllBytes(pathSentinelApp);

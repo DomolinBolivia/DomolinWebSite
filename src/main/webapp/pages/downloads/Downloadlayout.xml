@@ -56,7 +56,7 @@
             orientation="vertical">
             <TextView
                 background="pages/downloads/imgs/bg_barra_descargar.9.png"
-                text="SmartHub App Windows"
+                text="Centinela App para Windows"
                 textColor="#27EDEC"
                 textSize="14px"
                 singleLine="true"
@@ -103,7 +103,7 @@
             orientation="vertical">
             <TextView
                 background="pages/downloads/imgs/bg_barra_descargar.9.png"
-                text="SmartHub App Linux"
+                text="Centinela App para Linux"
                 textColor="#27EDEC"
                 textSize="14px"
                 singleLine="true"

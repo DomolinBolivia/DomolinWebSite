@@ -18,13 +18,24 @@ public class SentinelAppDownloadRest {
     @GET
     @Path("windows")
     @Produces("application/zip")
-    public void downloadApp(@Context HttpServletResponse response) throws IOException, MavenInvocationException{
+    public void downloadAppForWindows(@Context HttpServletResponse response) throws IOException, MavenInvocationException{
         String code = sentinelAppDownloadFacade.generateCode();
-        
         response.setContentType("application/zip");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_"+code+"\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_windows_"+code+"\"");
         response.setStatus(200);
         sentinelAppDownloadFacade.generateSentinelApp(code,"windows",response.getOutputStream());
+        response.flushBuffer();
+    }
+    
+    @GET
+    @Path("linux")
+    @Produces("application/zip")
+    public void downloadAppForLinux(@Context HttpServletResponse response) throws IOException, MavenInvocationException{
+        String code = sentinelAppDownloadFacade.generateCode();
+        response.setContentType("application/zip");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_linux_"+code+"\"");
+        response.setStatus(200);
+        sentinelAppDownloadFacade.generateSentinelApp(code,"linux",response.getOutputStream());
         response.flushBuffer();
     }
 }

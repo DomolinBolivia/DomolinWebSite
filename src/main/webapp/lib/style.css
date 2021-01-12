@@ -4,13 +4,14 @@ body {
 }
 
 @font-face {
-    font-family: 'SFTransRobotics';
-    src: url('fonts/SFTransRobotics.ttf');
+    font-family: 'orbitron';
+    src: url('fonts/orbitron.otf');
 }
 
 * {
-    font-family: 'SFTransRobotics';
+    font-family: 'orbitron';
     font-weight: normal;
+    letter-spacing: 2px;
 }
 
 .Button, .RadioButton, .ImageButton, .LinkButton, .Spinner, .OptionItem{
