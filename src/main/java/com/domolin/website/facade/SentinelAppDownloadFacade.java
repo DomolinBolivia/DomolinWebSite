@@ -50,15 +50,15 @@ public class SentinelAppDownloadFacade implements Serializable {
     }
 
     public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException {
-        if(!(System.getenv("M2_HOME") != null || System.getenv("M2_HOM")!=null))
+        if(System.getenv("M2_HOME") == null)
             throw new MavenInvocationException("No se encuentra la variable de entorno [M2_HOME="+System.getenv("M2_HOME")+"]. Establezca la variable de entorno con la ruta absoluta de MAVEN");
-        String mavenHome = System.getenv("M2_HOME");
-        if(mavenHome == null)
-            mavenHome = System.getenv("M2_HOM");
-        File mavenHomeDir = new File(mavenHome);
+        
+        File mavenFile = new File(System.getenv("M2_HOME")+File.separator+"bin"+File.separator+(OsUtilities.getOS()==OsUtilities.OS.WINDOWS?"mvn.cmd":"mvn"));
+        if(!mavenFile.exists())
+            throw new MavenInvocationException("No existe el archivo ["+mavenFile.getAbsolutePath()+"]");
         // Compilamos el proyecto sentinela
         Path tempApp = Files.createTempDirectory("sentinel_app_");
-        executeMavenCompilationSentinel(tempApp,mavenHomeDir);
+        executeMavenCompilationSentinel(tempApp,mavenFile);
 
         System.out.println("Obteniendo HASH de la apliaccion Centinela");
         // Obteniendo HASH del archivo generado
@@ -74,7 +74,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         // Generamos el Zip ejecutable
         // Creamos una carpeta temporal
         Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
-        executeMavenCompilationInstaller(code, pathDirInstaller,os,mavenHomeDir);
+        executeMavenCompilationInstaller(code, pathDirInstaller,os,mavenFile);
 
         // Copiamos el sentinela a la compilacion
         Files.move(pathSentinelApp, pathDirInstaller.resolve(appSentinelCompiledName), StandardCopyOption.REPLACE_EXISTING);
@@ -96,7 +96,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
-        invoker.setMavenHome(mavenHome);
+        invoker.setMavenExecutable(mavenHome);
 //        invoker.setMavenExecutable(new File(System.getenv("M2_HOME")+File.separator+(OsUtilities.getOS()==OsUtilities.OS.WINDOWS?"mvn.cmd":"mvn")));
         invoker.execute(request);
     }
@@ -130,7 +130,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
-        invoker.setMavenHome(mavenHome);
+        invoker.setMavenExecutable(mavenHome);
         invoker.execute(request);
     }
 
