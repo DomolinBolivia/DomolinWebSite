@@ -71,7 +71,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         sentinelAppDao.registerSentinelApp(code, hashSha512, 1, "1.0.0v");
     }
 
-    private synchronized Path executeMavenCompilationSentinel() throws MavenInvocationException, IOException {
+    private Path executeMavenCompilationSentinel() throws MavenInvocationException, IOException {
         Path tempApp = Files.createTempDirectory("sentinel_app_");
         Properties properties = new Properties();
         properties.put("directory", tempApp.toFile().getAbsolutePath());
@@ -94,13 +94,14 @@ public class SentinelAppDownloadFacade implements Serializable {
 //        appDownloadFacade.zipDirectory(fosZip, pathFolder);
 //    }
 
-    private synchronized Path executeMavenCompilationInstaller(String code,String os) throws MavenInvocationException, IOException {
+    private Path executeMavenCompilationInstaller(String code,String os) throws MavenInvocationException, IOException {
         Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
+        Path pathDirTargetInstaller = Files.createTempDirectory("sentinel_target_installer_");
         Properties properties = new Properties();
         properties.put("code", code);
         properties.put("directory", pathDirInstaller.toFile().getAbsolutePath());
+        properties.put("directoryTarget", pathDirTargetInstaller.toFile().getAbsolutePath());
         properties.put("os",os);
-        
         MavenUtilities.executeMavenCommand(new File(pathInstallerProyect), properties);
         return pathDirInstaller;
     }
