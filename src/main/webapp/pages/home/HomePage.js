@@ -73,4 +73,8 @@ class HomePage extends Page {
         let intent = new Intent(this,"DownloadPage");
         this.startPage(intent);
     }
+    
+    async onClickLogin(){
+        window.open(Constants.LOGIN_DOMOLIN);
+    }
 };
