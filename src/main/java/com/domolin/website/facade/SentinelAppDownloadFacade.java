@@ -36,6 +36,10 @@ public class SentinelAppDownloadFacade implements Serializable {
     private String appSentinelCompiledName;
 
     @Inject
+    @ConfigParam("domolin.domain")
+    private String domolinDomain;
+
+    @Inject
     public SentinelAppDao sentinelAppDao;
 
     public String generateCode() {
@@ -54,9 +58,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         byte[] byteJarSentinel = Files.readAllBytes(pathSentinelApp);
         String hashSha512 = getSha512(byteJarSentinel);
         System.out.println("");
-        System.out.println("");
         System.out.println("HASH: " + hashSha512);
-        System.out.println("");
         System.out.println("");
 
         // Generamos el Zip ejecutable
@@ -102,6 +104,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         properties.put("directory", pathDirInstaller.toFile().getAbsolutePath());
         properties.put("directoryTarget", pathDirTargetInstaller.toFile().getAbsolutePath());
         properties.put("os",os);
+        properties.put("server",domolinDomain);
         MavenUtilities.executeMavenCommand(new File(pathInstallerProyect), properties);
         return pathDirInstaller;
     }
