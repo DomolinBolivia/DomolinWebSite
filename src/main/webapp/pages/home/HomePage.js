@@ -75,6 +75,7 @@ class HomePage extends Page {
     }
     
     async onClickLogin(){
-        window.open(Constants.LOGIN_DOMOLIN);
+//        window.open(Constants.LOGIN_DOMOLIN);
+        window.location.replace(Constants.LOGIN_DOMOLIN);
     }
 };
