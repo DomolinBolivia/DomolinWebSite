@@ -48,6 +48,11 @@
             text="Acerca de Nosotros"
             marginLeft="10px"
             marginRight="10px"/>
+        <LinkButton
+            text="Login"
+            marginLeft="10px"
+            marginRight="10px"
+            onClick="onClickLogin"/>
     </LinearLayout>
     <LinearLayout
         orientation="horizontal"
