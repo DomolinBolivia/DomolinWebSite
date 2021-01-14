@@ -15,7 +15,7 @@ class DownloadPage extends Page {
         (async () => {
             await Toast.makeText(this_,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
         });
-        await FileChooser.showSaveFile("services/sentinel_download/windows");
+        await FileChooser.showSaveFile("download/windows/centinela.zip");
     }
 
     async onClickDescargarLinux(){
@@ -23,7 +23,7 @@ class DownloadPage extends Page {
         (async () => {
             await Toast.makeText(this_,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
         });
-        await FileChooser.showSaveFile("services/sentinel_download/linux");
+        await FileChooser.showSaveFile("download/linux/centinela.zip");
     }
     
     async onClickLogin(){

@@ -158,14 +158,14 @@
                 textColor="#27EDEC"
                 marginBottom="30px"/>
             <TextView
-                text="La aplicación SmartHub se instalara en su computadora local, necesaria para la conectividad con el servidor Domolin para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
+                text="La aplicación Centinela se instalara en su computadora local, necesaria para la conectividad con el servidor Domolin para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
 &#13;&#10;
 &#13;&#10;
 &#13;&#10;
 &#xD;&#xA;
 &#xD;&#xA;
 &#xD;&#xA;
-SmartHub se ejecutara en Background monitorizando eventos y acciones
+Centinela se ejecutara en Background(Segundo Plano) monitorizando eventos y acciones
 a realizar entre los dispositivos."
                 width="300px"/>
             <TextView
