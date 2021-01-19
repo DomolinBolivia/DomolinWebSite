@@ -74,14 +74,14 @@ class HomePage extends Page {
     }
     
     async onClickDescargas(){
-        this.finish();
+        await this.finish();
         await Resource.import("pages/downloads/DownloadPage.js");
         let intent = new Intent(this,"DownloadPage");
         this.startPage(intent);
     }
     
     async onClickAcercaDe(){
-        this.finish();
+        await this.finish();
         await Resource.import("pages/about/AboutPage.js");
         let intent = new Intent(this,"AboutPage");
         this.startPage(intent);

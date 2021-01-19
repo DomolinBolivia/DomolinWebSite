@@ -28,7 +28,7 @@ class DownloadPage extends Page {
     }
 
     async onClickHome(){
-        this.finish();
+        await this.finish();
         await Resource.import("pages/home/HomePage.js");
         let intent = new Intent(this,"HomePage");
         this.startPage(intent);
@@ -39,7 +39,7 @@ class DownloadPage extends Page {
     }
     
     async onClickAcercaDe(){
-        this.finish();
+        await this.finish();
         await Resource.import("pages/about/AboutPage.js");
         let intent = new Intent(this,"AboutPage");
         this.startPage(intent);
