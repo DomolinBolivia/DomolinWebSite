@@ -46,7 +46,7 @@
             marginRight="10px"
             onClick="onClickAcercaDe"/>
         <LinkButton
-            text="Login"
+            text="Ingresar"
             marginLeft="10px"
             marginRight="10px"
             onClick="onClickLogin"/>

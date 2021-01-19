@@ -38,8 +38,8 @@ class HomePage extends Page {
         this.timerFotos.start();
     }
 
-    async onClickPausa(){
-        this.timerFotos.stop();
+    async onClickPruebaGratuita(){
+        window.open(Constants.LOGIN_DOMOLIN);
     }
 
     async siguienteFoto(){

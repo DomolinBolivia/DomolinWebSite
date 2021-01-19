@@ -46,7 +46,7 @@
             marginRight="10px"
             onClick="onClickAcercaDe"/>
         <LinkButton
-            text="Login"
+            text="Ingresar"
             marginLeft="10px"
             marginRight="10px"
             onClick="onClickLogin"/>
@@ -156,7 +156,7 @@
                 text="Prueba gratuita"
                 layoutGravity="center_horizontal"
                 marginTop="20px"
-                onClick="onClickPausa"/>
+                onClick="onClickPruebaGratuita"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
