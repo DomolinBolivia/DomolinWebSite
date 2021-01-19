@@ -1,13 +1,9 @@
-/* global FileChooser, Toast, Constants */
+/* global FileChooser, Toast, Constants, Resource */
 
 class DownloadPage extends Page {
     // @Override
     async onCreate(intent) {
         this.setContentView("pages/downloads/Downloadlayout.xml");
-    }
-
-    async onClickHome(){
-        this.finish();
     }
 
     async onClickDescargarWindows(){
@@ -29,5 +25,23 @@ class DownloadPage extends Page {
     async onClickLogin(){
         sessionStorage.clear();
         window.location.replace(Constants.LOGIN_DOMOLIN);
+    }
+
+    async onClickHome(){
+        this.finish();
+        await Resource.import("pages/home/HomePage.js");
+        let intent = new Intent(this,"HomePage");
+        this.startPage(intent);
+    }
+    
+    async onClickDescargas(){
+        await Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
+    }
+    
+    async onClickAcercaDe(){
+        this.finish();
+        await Resource.import("pages/about/AboutPage.js");
+        let intent = new Intent(this,"AboutPage");
+        this.startPage(intent);
     }
 };

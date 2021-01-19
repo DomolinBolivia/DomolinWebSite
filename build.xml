@@ -46,13 +46,15 @@
         </exec>
     </target>
     <target name="deploy-war">
-        <echo level="info" message="Deployando WAR"/>
+        <echo level="info" message="Desplegando WAR"/>
         <exec dir="${basedir}${file.separator}target" executable="${wildFlyPath}${file.separator}bin${file.separator}jboss-cli.${bashExt}">
-            <arg line="--connect --commands=&quot;deploy ${warName}.war&quot;" />
+            <arg line="--connect --commands=&quot;deploy ${warName}.war --force&quot;" />
         </exec>
+        <echo level="info" message="Aplicacion desplegada"/>
     </target>
     <target name="show-in-brouser">
         <echo level="info" message="Mostrando en navegador"/>
+        <echo level="info" message="Direccion: http://localhost:8080/"/>
         <exec dir="${basedir}" executable="explorer"  spawn="false">
             <arg line="http://localhost:8080/" />
         </exec>

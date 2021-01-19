@@ -1,4 +1,4 @@
-/* global Thread */
+/* global Thread, Resource, Constants, Toast */
 (async () => {
     await Resource.import("pages/home/style.css");
 })();
@@ -67,10 +67,23 @@ class HomePage extends Page {
     async onClickAnteriorFoto(){
         this.anteriorFoto();
     }
-
+    
+    
+    async onClickHome(){
+        await Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
+    }
+    
     async onClickDescargas(){
+        this.finish();
         await Resource.import("pages/downloads/DownloadPage.js");
         let intent = new Intent(this,"DownloadPage");
+        this.startPage(intent);
+    }
+    
+    async onClickAcercaDe(){
+        this.finish();
+        await Resource.import("pages/about/AboutPage.js");
+        let intent = new Intent(this,"AboutPage");
         this.startPage(intent);
     }
     

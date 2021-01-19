@@ -3,8 +3,7 @@
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/src/layout-xml.xsd'
     width="match_parent"
-    height="match_parent"
-    background="#373435">
+    height="match_parent">
     <LinearLayout
         width="wrap_content"
         height="wrap_content"
@@ -36,18 +35,16 @@
             marginRight="10px"
             onClick="onClickHome"/>
         <LinkButton
-            text="Productos"
-            marginLeft="10px"
-            marginRight="10px"/>
-        <LinkButton
             text="Descargas"
             marginLeft="10px"
             marginRight="10px"
-            cssClassList="textSelected"/>
+            cssClassList="textSelected"
+            onClick="onClickDescargas"/>
         <LinkButton
             text="Acerca de Nosotros"
             marginLeft="10px"
-            marginRight="10px"/>
+            marginRight="10px"
+            onClick="onClickAcercaDe"/>
         <LinkButton
             text="Login"
             marginLeft="10px"
@@ -158,7 +155,7 @@
                 textColor="#27EDEC"
                 marginBottom="30px"/>
             <TextView
-                text="La aplicación Centinela se instalara en su computadora local, necesaria para la conectividad con el servidor Domolin para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
+                text="La aplicación Centinela se instalara en su computadora local, necesaria para la conectividad con el servidor DOMOLIN para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
 &#13;&#10;
 &#13;&#10;
 &#13;&#10;

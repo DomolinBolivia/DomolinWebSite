@@ -1,0 +1,18 @@
+.botonDispositivo {
+    transition: all .1s ease-in-out;
+    color: #D6EFFF;
+
+}
+.botonDispositivo:hover {
+    transform: scale(0.9);
+    filter: drop-shadow(0px 0px 10px #27EDEC);
+}
+.botonDispositivo:active {
+}
+
+.numeroSeleccionado {
+    background-color: #132333;
+    border-radius: 50%;
+    display: inline-block;
+    border: 3px #0BFFFF solid;
+}

@@ -4,6 +4,8 @@
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="lib/cuyjs.min.js"></script>
+        <script src="assets/bg/three.min.js"></script>
+        <script src="assets/bg/bgLoader.js"></script>
         <link rel="stylesheet" type="text/css" href="lib/style.css" />
         <script>
             (async () => {
@@ -12,13 +14,17 @@
                 let manifest = {
                     theme: "lib/default_theme.xml",
                     pages: [
-                        { name: "pages/home/HomePage.js", category: "ROOT", screenOrientation: "portrait" },
-                        { name: "pages/downloads/DownloadPage.js", category: "LAUNCHER" }
+                        { name: "pages/home/HomePage.js", category: "ROOT", history:"false", screenOrientation: "portrait" },
+                        { name: "pages/downloads/DownloadPage.js", history:"false", category: "LAUNCHER" },
+                        { name: "pages/about/AboutPage.js", history:"false", category: "LAUNCHER" }
                     ]
                 };
                 await PageManager.startApp(manifest);
+                
             })();
         </script>
     </head>
-    <body></body>
+    <body>
+        <canvas id="canvasBg" style="background: black; position: absolute;"></canvas>
+    </body>
 </html>

@@ -3,8 +3,7 @@
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='../../lib/layout-xml.xsd'
     width="match_parent"
-    height="match_parent"
-    background="#373435">
+    height="match_parent">
     <LinearLayout
         width="wrap_content"
         height="wrap_content"
@@ -34,11 +33,8 @@
             text="Domótica e IOT"
             marginLeft="10px"
             marginRight="10px"
-            cssClassList="textSelected"/>
-        <LinkButton
-            text="Productos"
-            marginLeft="10px"
-            marginRight="10px"/>
+            cssClassList="textSelected"
+            onClick="onClickHome"/>
         <LinkButton
             text="Descargas"
             marginLeft="10px"
@@ -47,7 +43,8 @@
         <LinkButton
             text="Acerca de Nosotros"
             marginLeft="10px"
-            marginRight="10px"/>
+            marginRight="10px"
+            onClick="onClickAcercaDe"/>
         <LinkButton
             text="Login"
             marginLeft="10px"
