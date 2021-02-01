@@ -141,7 +141,7 @@
                     <LinkButton
                         drawableLeft="pages/about/imgs/ic_contact.png"
                         width="match_parent"
-                        text="+591 76545646 +791 77654744"
+                        text="+591 79642513"
                         iconWidth="20px"
                         iconHeight="20px"/>
                     <TextView
@@ -152,7 +152,7 @@
                         textColor="{{Colors.HEADER}}"/>
                     <TextView
                         width="match_parent"
-                        text="Desarrollar productos de Hardware y Software que ayuden a  mejorar la calidad de vida y seguridad para las empresas, hogares y personas. \nInterconectar nuestros productos y brindar un mejor servicio a la facilidad de un solo portar de control"/>
+                        text="Desarrollar productos de Hardware y Software que ayuden a  mejorar la calidad de vida y seguridad para las empresas, hogares y personas. \nInterconectar nuestros productos y brindar un mejor servicio a la facilidad de un solo portal de control"/>
                     <TextView
                         text="Misión"
                         singleLine="true"
