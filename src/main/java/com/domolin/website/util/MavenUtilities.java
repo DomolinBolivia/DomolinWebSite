@@ -24,7 +24,8 @@ public class MavenUtilities {
             throw new MavenInvocationException("No existe el archivo ["+mavenFile.getAbsolutePath()+"]");
         
         InvocationRequest request = new DefaultInvocationRequest();
-//        request.setOffline(true);
+        request.setOffline(true);
+        request.setDebug(false);
         System.out.println("Ruta Proyecto: " + proyectHome.getAbsolutePath());
         request.setBaseDirectory(proyectHome);
 //        request.setGoals(Arrays.asList("clean", "package"));
