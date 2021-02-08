@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='../../lib/layout-xml.xsd'
+    width="500px"
+    height="150px"
+    orientation="vertical">
+    <ImageView
+        width="500px"
+        height="130px"
+        src="assets/imgs/ic_sitio_desarrollo.png"
+        layoutGravity="center_horizontal"/>
+    <LinkButton
+        marginTop="20px"
+        text="Cerrar y continuar"
+        singleLine="true"
+        onClick="onClickCerrar"
+        layoutGravity="center_horizontal"/>
+</LinearLayout>

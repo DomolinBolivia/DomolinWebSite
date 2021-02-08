@@ -3,6 +3,17 @@
     await Resource.import("pages/home/style.css");
 })();
 
+class DesarrolloDialog extends Dialog{
+    constructor(context){
+        super(context);
+        this.setContentView("pages/home/DesarrolloLayout.xml");
+    }
+    
+    async onClickCerrar(){
+        this.cancel();
+    }
+};
+
 class HomePage extends Page {
     // @Override
     async onCreate(intent) {
@@ -21,6 +32,9 @@ class HomePage extends Page {
             this.siguienteFoto();
         };
         this.timerFotos.schedule(this.runnable,3000);
+        
+        let dialog = new DesarrolloDialog(this);
+        await dialog.show();
     }
 
     async onPause(){
