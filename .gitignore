@@ -1,1 +1,4 @@
 /target/
+/dist/
+
+src/main/resources/META-INF/config.properties
