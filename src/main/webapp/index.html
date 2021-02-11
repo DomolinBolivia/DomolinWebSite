@@ -15,6 +15,7 @@
         <script src="assets/bg/bgLoader.js"></script>
         <script>
             (async () => {
+                await Resource.import('config/Config.js');
                 await Resource.import('config/Colors.js');
                 await Resource.import('config/Constants.js');
                 let manifest = {

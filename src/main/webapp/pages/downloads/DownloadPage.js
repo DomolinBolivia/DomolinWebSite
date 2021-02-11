@@ -24,7 +24,7 @@ class DownloadPage extends Page {
     
     async onClickLogin(){
         sessionStorage.clear();
-        window.location.replace(Constants.LOGIN_DOMOLIN);
+        window.location.replace(Config.LOGIN_DOMOLIN);
     }
 
     async onClickHome(){

@@ -1,4 +1,4 @@
-/* global Thread, Resource, Constants, Toast */
+/* global Thread, Resource, Constants, Toast, Config */
 (async () => {
     await Resource.import("pages/home/style.css");
 })();
@@ -53,7 +53,7 @@ class HomePage extends Page {
     }
 
     async onClickPruebaGratuita(){
-        window.open(Constants.LOGIN_DOMOLIN);
+        window.open(Config.LOGIN_DOMOLIN);
     }
 
     async siguienteFoto(){
@@ -103,6 +103,6 @@ class HomePage extends Page {
     
     async onClickLogin(){
         sessionStorage.clear();
-        window.location.replace(Constants.LOGIN_DOMOLIN);
+        window.location.replace(Config.LOGIN_DOMOLIN);
     }
 };

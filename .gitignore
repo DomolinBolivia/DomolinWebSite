@@ -2,4 +2,5 @@
 /dist/
 
 src/main/resources/META-INF/config.properties
+src/main/webapp/config/Config.js
 nb-configuration.xml
