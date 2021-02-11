@@ -66,7 +66,8 @@
                 height="300px"
                 layoutGravity="center_horizontal"/>
             <TextView
-                text="Empresa dedicada al desarrollo venta y producción de herramientas de software y hardware para la automatización artefactos digitales."
+                id="texto"
+                text="Empresa dedicada al desarrollo de herramientas hardware y software para la &lt;span style=&apos;color:#FD500C&apos;&gt;Domótica, Inmótica e IOT&lt;/span&gt; con &lt;span style=&apos;color:#FD500C&apos;&gt;Inteligencia Artifical&lt;/span&gt; para una mayor efectividad en el control de su empresa u hogar."
                 textColor="#D2D3D5"
                 marginTop="20px"
                 width="460px"/>
