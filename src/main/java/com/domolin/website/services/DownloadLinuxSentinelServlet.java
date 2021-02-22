@@ -19,7 +19,7 @@ public class DownloadLinuxSentinelServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         String code = sentinelAppDownloadFacade.generateCode();
         response.setContentType("application/zip");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_windows_"+code+"\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_windows_"+code+".zip\"");
         response.setStatus(200);
         try {
             sentinelAppDownloadFacade.generateSentinelApp(code,"linux",response.getOutputStream());
