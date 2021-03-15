@@ -9,28 +9,15 @@
         width="match_parent"
         height="match_parent">
         <!-- LOGO -->
-        <LinearLayout
-            orientation="vertical"
-            margin="20px">
-            <LinearLayout
-                orientation="horizontal">
-                <ImageView
-                    height="70px"
-                    width="70px"
-                    src="assets/imgs/icon_medium.png"/>
-                <TextView
-                    text="Domolin"
-                    textColor="#E8E88A"
-                    textSize="50px"
-                    shadowColor="#E8E88A"
-                    shadowRadius="10"
-                    layoutGravity="bottom"/>
-            </LinearLayout>
-            <TextView
-                text="Automatización, control, confort y seguridad para tu hogar o industria."
-                singleLine="true"
-                textColor="#B7E4B5"/>
-        </LinearLayout>
+        <TextView
+            iconHeight="70px"
+            iconWidth="70px"
+            text="Domolin"
+            textColor="#E8E88A"
+            textSize="50px"
+            shadowColor="#E8E88A"
+            shadowRadius="10"
+            drawableLeft="assets/imgs/icon_medium.png"/>
         <LinearLayout
             orientation="horizontal"
             width="match_parent"

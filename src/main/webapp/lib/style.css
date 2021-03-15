@@ -28,7 +28,6 @@ body {
 
 .Button, .RadioButton, .ImageButton, .LinkButton, .Spinner, .OptionItem{
     transition: all .1s ease-in-out;
-    font-size: 14px;
 }
 
 .Button:hover, .RadioButton:hover, .ImageButton:hover, .LinkButton:hover, .Spinner:hover, .OptionItem:hover{
@@ -51,7 +50,6 @@ body {
     border-width: 2px;
     background: rgba(8, 24, 40, 0.5);;
     color: #AFC0C8;
-    font-size: 13px;
     transition: all .2s ease-in-out;
     box-sizing: border-box;
 

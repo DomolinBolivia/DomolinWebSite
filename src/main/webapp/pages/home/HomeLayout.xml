@@ -178,81 +178,45 @@
             height="wrap_content"
             orientation="horizontal"
             layoutGravity="center_horizontal">
-            <LinearLayout
-                orientation="vertical"
-                cssClassList="LinkButton"
-                theme="LinkButton"
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_rgb.png"
                 marginLeft="30px"
-                marginRight="30px">
-                <ImageView
-                    src="pages/home/imgs/ic_rgb.png"
-                    width="100px"
-                    height="100px"
-                    layoutGravity="center_horizontal"/>
-                <TextView
-                    text="Interruptor RGB tactil"
-                    layoutGravity="center_horizontal"/>
-            </LinearLayout>
-            <LinearLayout
-                orientation="vertical"
-                cssClassList="LinkButton"
-                theme="LinkButton"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_portero.png"
                 marginLeft="30px"
-                marginRight="30px">
-                <ImageView
-                    src="pages/home/imgs/ic_portero.png"
-                    width="100px"
-                    height="100px"
-                    layoutGravity="center_horizontal"/>
-                <TextView
-                    text="Portero Eléctrico"
-                    layoutGravity="center_horizontal"/>
-            </LinearLayout>
-            <LinearLayout
-                orientation="vertical"
-                cssClassList="LinkButton"
-                theme="LinkButton"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Portero Eléctrico"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_camara_ip.png"
                 marginLeft="30px"
-                marginRight="30px">
-                <ImageView
-                    src="pages/home/imgs/ic_camara_ip.png"
-                    width="100px"
-                    height="100px"
-                    layoutGravity="center_horizontal"/>
-                <TextView
-                    text="Camara IP"
-                    layoutGravity="center_horizontal"/>
-            </LinearLayout>
-            <LinearLayout
-                orientation="vertical"
-                cssClassList="LinkButton"
-                theme="LinkButton"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Camara IP"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_rgb.png"
                 marginLeft="30px"
-                marginRight="30px">
-                <ImageView
-                    src="pages/home/imgs/ic_rgb.png"
-                    width="100px"
-                    height="100px"
-                    layoutGravity="center_horizontal"/>
-                <TextView
-                    text="Interruptor RGB tactil"
-                    layoutGravity="center_horizontal"/>
-            </LinearLayout>
-            <LinearLayout
-                orientation="vertical"
-                cssClassList="LinkButton"
-                theme="LinkButton"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_portero.png"
                 marginLeft="30px"
-                marginRight="30px">
-                <ImageView
-                    src="pages/home/imgs/ic_portero.png"
-                    width="100px"
-                    height="100px"
-                    layoutGravity="center_horizontal"/>
-                <TextView
-                    text="Interruptor RGB tactil"
-                    layoutGravity="center_horizontal"/>
-            </LinearLayout>
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

@@ -11,6 +11,7 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.InvocationResult;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
+import org.apache.maven.shared.invoker.PrintStreamLogger;
 
 public class MavenUtilities {    
     public static void executeMavenCommand(File proyectHome,Properties properties ) throws MavenInvocationException, IOException{
@@ -24,7 +25,7 @@ public class MavenUtilities {
             throw new MavenInvocationException("No existe el archivo ["+mavenFile.getAbsolutePath()+"]");
         
         InvocationRequest request = new DefaultInvocationRequest();
-        request.setOffline(true);
+        request.setOffline(false);
         request.setDebug(false);
         System.out.println("Ruta Proyecto: " + proyectHome.getAbsolutePath());
         request.setBaseDirectory(proyectHome);
@@ -35,8 +36,9 @@ public class MavenUtilities {
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenFile);
         System.out.println("Ruta Maven: "+mavenFile.getParentFile().getAbsolutePath());
+        invoker.setLogger(new PrintStreamLogger());
         InvocationResult invocationResult = invoker.execute(request);
         if(invocationResult.getExitCode()==1)
-            throw new MavenInvocationException("Ocurrio un error al ejecutar la compilación con MAVEN",invocationResult.getExecutionException());
+            throw new MavenInvocationException("Ocurrio un error al compilar con MAVEN",invocationResult.getExecutionException());
     }
 }

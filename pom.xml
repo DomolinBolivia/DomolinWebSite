@@ -15,7 +15,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
         
-        <wildfly-path>C:\Program Files\wildfly-20.0.1.Final</wildfly-path>
+        <wildfly-path>C:\Program Files\wildfly-22.0.1</wildfly-path>
         <wildfly-war-name>DomolinWebSite</wildfly-war-name>
         <ant-target>${ant-target}</ant-target>
     </properties>
@@ -50,11 +50,25 @@
         <dependency>
             <groupId>org.apache.maven.shared</groupId>
             <artifactId>maven-invoker</artifactId>
-            <version>2.1.1</version>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>default-install</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

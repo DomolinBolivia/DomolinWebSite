@@ -29,15 +29,35 @@ public class SentinelAppDownloadFacade implements Serializable {
 
     @Inject
     @ConfigParam("sentinel.app.proyect")
-    private String pathAppProyect;
+    public String pathAppProyect;
 
     @Inject
     @ConfigParam("sentinel.app.compiled_name")
     private String appSentinelCompiledName;
 
     @Inject
-    @ConfigParam("domolin.domain")
-    private String domolinDomain;
+    @ConfigParam("server.domolin.address")
+    private String domolinAddress;
+
+    @Inject
+    @ConfigParam("server.domolin.port.http")
+    private String domolinPortHttp;
+
+    @Inject
+    @ConfigParam("server.domolin.port.rmi")
+    private String domolinPortRmi;
+
+    @Inject
+    @ConfigParam("server.sentinel.address")
+    private String sentinelAddress;
+
+    @Inject
+    @ConfigParam("server.sentinel.port.rmi")
+    private String sentinelPortRmi;
+
+    @Inject
+    @ConfigParam("server.domolin.ssl.enabled")
+    private String domolinSslEnabled;
 
     @Inject
     public SentinelAppDao sentinelAppDao;
@@ -57,9 +77,6 @@ public class SentinelAppDownloadFacade implements Serializable {
         Path pathSentinelApp = tempApp.resolve(appSentinelCompiledName);
         byte[] byteJarSentinel = Files.readAllBytes(pathSentinelApp);
         String hashSha512 = getSha512(byteJarSentinel);
-        System.out.println("");
-        System.out.println("HASH: " + hashSha512);
-        System.out.println("");
 
         // Generamos el Zip ejecutable
         // Creamos una carpeta temporal
@@ -81,21 +98,6 @@ public class SentinelAppDownloadFacade implements Serializable {
         return tempApp;
     }
 
-//    public static void main(String cors[]) throws MavenInvocationException, IOException {
-//        
-//        System.out.println("MAVEN_HOME: "+System.getenv("M3_HOME"));
-//        
-//        SentinelAppDownloadFacade appDownloadFacade = new SentinelAppDownloadFacade();
-////         appDownloadFacade.pathAppProyect = "D:\\proyectos\\smart_hub\\source\\Sentinel";
-////         appDownloadFacade.executeMavenCompilationSentinel(new File("C:\\Users\\GIGABYTE\\AppData\\Local\\Temp\\sentinel_app_6026810746652537848\\").toPath());
-//
-//        File fileFos = new File("C:\\Users\\GIGABYTE\\Downloads\\prueba.zip");
-//        fileFos.createNewFile();
-//        FileOutputStream fosZip = new FileOutputStream(fileFos);
-//        Path pathFolder = new File("D:\\wilma\\rnt\\ants").toPath();
-//        appDownloadFacade.zipDirectory(fosZip, pathFolder);
-//    }
-
     private Path executeMavenCompilationInstaller(String code,String os) throws MavenInvocationException, IOException {
         Path pathDirInstaller = Files.createTempDirectory("sentinel_installer_");
         Path pathDirTargetInstaller = Files.createTempDirectory("sentinel_target_installer_");
@@ -104,7 +106,14 @@ public class SentinelAppDownloadFacade implements Serializable {
         properties.put("directory", pathDirInstaller.toFile().getAbsolutePath());
         properties.put("directoryTarget", pathDirTargetInstaller.toFile().getAbsolutePath());
         properties.put("os",os);
-        properties.put("server",domolinDomain);
+        
+        properties.put("server.domolin.address",domolinAddress);
+        properties.put("server.domolin.port.http",domolinPortHttp);
+        properties.put("server.domolin.port.rmi",domolinPortRmi);
+        properties.put("server.domolin.ssl.enabled",domolinSslEnabled);
+        properties.put("server.sentinel.port.rmi",sentinelPortRmi);
+        properties.put("server.sentinel.address",sentinelAddress);
+        
         MavenUtilities.executeMavenCommand(new File(pathInstallerProyect), properties);
         return pathDirInstaller;
     }

@@ -4,24 +4,15 @@
     xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/src/layout-xml.xsd'
     width="match_parent"
     height="match_parent">
-    <LinearLayout
-        width="wrap_content"
-        height="wrap_content"
-        orientation="horizontal"
-        margin="20px"
-        layoutGravity="left|top">
-        <ImageView
-            height="70px"
-            width="70px"
-            src="assets/imgs/icon_medium.png"/>
-        <TextView
-            text="Domolin"
-            textColor="#E8E88A"
-            textSize="50px"
-            shadowColor="#E8E88A"
-            shadowRadius="10"
-            layoutGravity="bottom"/>
-    </LinearLayout>
+    <TextView
+        iconHeight="70px"
+        iconWidth="70px"
+        text="Domolin"
+        textColor="#E8E88A"
+        textSize="50px"
+        shadowColor="#E8E88A"
+        shadowRadius="10"
+        drawableLeft="assets/imgs/icon_medium.png"/>
     <LinearLayout
         width="wrap_content"
         height="wrap_content"
