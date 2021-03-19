@@ -1,4 +1,4 @@
-/* global FileChooser, Toast, Constants, Resource */
+/* global FileChooser, Toast, Constants, Resource, Config */
 
 class DownloadPage extends Page {
     // @Override
@@ -7,18 +7,12 @@ class DownloadPage extends Page {
     }
 
     async onClickDescargarWindows(){
-        var this_= this;
-        (async () => {
-            await Toast.makeText(this_,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
-        });
+        Toast.makeText(this,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
         await FileChooser.showSaveFile("download/windows/centinela.zip");
     }
 
     async onClickDescargarLinux(){
-        var this_= this;
-        (async () => {
-            await Toast.makeText(this_,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
-        });
+        Toast.makeText(this,"Por favor espere un momento. Se generara un instalador único.",Toast.LENGTH_LONG);
         await FileChooser.showSaveFile("download/linux/centinela.zip");
     }
     
@@ -35,7 +29,7 @@ class DownloadPage extends Page {
     }
     
     async onClickDescargas(){
-        await Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
     }
     
     async onClickAcercaDe(){

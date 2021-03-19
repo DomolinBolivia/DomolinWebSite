@@ -84,7 +84,7 @@ class HomePage extends Page {
     
     
     async onClickHome(){
-        await Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
     }
     
     async onClickDescargas(){

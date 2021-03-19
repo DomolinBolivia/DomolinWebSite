@@ -1,4 +1,4 @@
-/* global Thread, Resource, Constants, Toast */
+/* global Thread, Resource, Constants, Toast, Config */
 (async () => {
     await Resource.import("pages/about/style.css");
 })();
@@ -60,7 +60,7 @@ class AboutPage extends Page {
     }
     
     async onClickAcercaDe(){
-        await Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"Ya se encuentra en la página",Toast.LENGTH_SHORT);
     }
     
     async onClickLogin(){
