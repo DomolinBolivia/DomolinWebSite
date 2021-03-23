@@ -1,6 +1,6 @@
 package com.domolin.website.facade;
 
-import com.domolin.database.dao.SentinelAppDao;
+import com.domolin.database.entities.SentinelApp;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -40,6 +40,10 @@ public class SentinelAppDownloadFacade implements Serializable {
     private String domolinAddress;
 
     @Inject
+    @ConfigParam("server.domolin.address.iot")
+    private String domolinAddressIot;
+
+    @Inject
     @ConfigParam("server.domolin.port.http")
     private String domolinPortHttp;
 
@@ -59,12 +63,9 @@ public class SentinelAppDownloadFacade implements Serializable {
     @ConfigParam("server.domolin.ssl.enabled")
     private String domolinSslEnabled;
 
-    @Inject
-    public SentinelAppDao sentinelAppDao;
-
     public String generateCode() {
-        BigInteger secuencie = sentinelAppDao.generateCode();
-        String code = sentinelAppDao.encodeCode(secuencie);
+        BigInteger secuencie = SentinelApp.generateCode();
+        String code = SentinelApp.encodeCode(secuencie);
         return code;
     }
 
@@ -87,7 +88,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         zipDirectory(outputStream, pathDirInstaller);
 
         // Registrando la aplicacion generada
-        sentinelAppDao.registerSentinelApp(code, hashSha512, 1, "1.0.0v");
+        SentinelApp.registerSentinelApp(code, hashSha512, 1, "1.0.0v");
     }
 
     private Path executeMavenCompilationSentinel() throws MavenInvocationException, IOException {
@@ -108,6 +109,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         properties.put("os",os);
         
         properties.put("server.domolin.address",domolinAddress);
+        properties.put("server.domolin.address.iot",domolinAddressIot);
         properties.put("server.domolin.port.http",domolinPortHttp);
         properties.put("server.domolin.port.rmi",domolinPortRmi);
         properties.put("server.domolin.ssl.enabled",domolinSslEnabled);

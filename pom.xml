@@ -8,8 +8,6 @@
     <name>DomolinWebSite</name>
     
     <properties>
-        <maven.compiler.source>1.11</maven.compiler.source>
-        <maven.compiler.target>1.11</maven.compiler.target>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -18,12 +16,14 @@
         <wildfly-path>C:\Program Files\wildfly-22.0.1</wildfly-path>
         <wildfly-war-name>DomolinWebSite</wildfly-war-name>
         <ant-target>${ant-target}</ant-target>
+        <context-root>${context-root}</context-root>
     </properties>
     <profiles>
         <profile>
             <id>default</id>
             <properties>
                 <ant-target>start_dev</ant-target>
+                <context-root></context-root>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -52,6 +52,12 @@
             <artifactId>maven-invoker</artifactId>
             <version>3.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.18</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -74,11 +80,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerArguments>
-                        <endorseddirs>${endorsed.dir}</endorseddirs>
-                    </compilerArguments>
+                    <source>11</source> 
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -98,31 +101,6 @@
                         </resource>
                     </webResources>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${endorsed.dir}</outputDirectory>
-                            <silent>true</silent>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>javax</groupId>
-                                    <artifactId>javaee-api</artifactId>
-                                    <version>${jakartaee}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>com.fizzed</groupId>
@@ -152,6 +130,7 @@
                                 <property name="mavenHome" value="${maven.home}"/>
                                 <property name="wildFlyPath" value="${wildfly-path}"/>
                                 <property name="warName" value="${wildfly-war-name}"/>
+                                <property name="contextRoot" value="${context-root}"/>
                                 <ant antfile="${basedir}/build.xml">
                                     <target name="${ant-target}" />
                                 </ant>

@@ -54,9 +54,9 @@
     </target>
     <target name="show-in-brouser">
         <echo level="info" message="Mostrando en navegador"/>
-        <echo level="info" message="Direccion: http://localhost:8080/"/>
+        <echo level="info" message="Direccion: http://localhost:8080/${contextRoot}"/>
         <exec dir="${basedir}" executable="explorer"  spawn="false">
-            <arg line="http://localhost:8080/" />
+            <arg line="http://localhost:8080/${contextRoot}" />
         </exec>
     </target>
 </project>
