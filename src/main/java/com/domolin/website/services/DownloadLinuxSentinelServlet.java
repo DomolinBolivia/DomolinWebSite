@@ -1,5 +1,6 @@
 package com.domolin.website.services;
 
+import com.domolin.database.error.NoFountRepoException;
 import com.domolin.website.facade.SentinelAppDownloadFacade;
 import java.io.IOException;
 import javax.inject.Inject;
@@ -17,13 +18,13 @@ public class DownloadLinuxSentinelServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        String code = sentinelAppDownloadFacade.generateCode();
-        response.setContentType("application/zip");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_windows_"+code+".zip\"");
-        response.setStatus(200);
         try {
+            String code = sentinelAppDownloadFacade.generateCode();
+            response.setContentType("application/zip");
+            response.setHeader("Content-Disposition", "attachment; filename=\"" + "CentinelaDeDomolin_windows_"+code+".zip\"");
+            response.setStatus(200);
             sentinelAppDownloadFacade.generateSentinelApp(code,"linux",response.getOutputStream());
-        } catch (MavenInvocationException ex) {
+        } catch (NoFountRepoException | IOException | MavenInvocationException ex) {
             throw new IOException("Error al compilar el servicio", ex);
         }
         response.flushBuffer();

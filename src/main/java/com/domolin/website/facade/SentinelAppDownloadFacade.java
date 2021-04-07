@@ -1,6 +1,8 @@
 package com.domolin.website.facade;
 
+import com.domolin.database.DBConnector;
 import com.domolin.database.entities.SentinelApp;
+import com.domolin.database.error.NoFountRepoException;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -10,6 +12,7 @@ import java.util.Properties;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import com.domolin.util.util.ConfigParam;
+import com.domolin.website.querys.SentinelAppQuerys;
 import com.domolin.website.util.MavenUtilities;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -63,8 +66,9 @@ public class SentinelAppDownloadFacade implements Serializable {
     @ConfigParam("server.domolin.ssl.enabled")
     private String domolinSslEnabled;
 
-    public String generateCode() {
-        BigInteger secuencie = SentinelApp.generateCode();
+    public String generateCode() throws NoFountRepoException {
+        SentinelAppQuerys appQuerys = DBConnector.getQueryRepository(SentinelAppQuerys.class);
+        BigInteger secuencie = appQuerys.generateCode();
         String code = SentinelApp.encodeCode(secuencie);
         return code;
     }

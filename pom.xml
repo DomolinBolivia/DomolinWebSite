@@ -13,7 +13,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
         
-        <wildfly-path>C:\Program Files\wildfly-22.0.1</wildfly-path>
+        <wildfly-path>${env.WILDFLY_HOME}</wildfly-path>
         <wildfly-war-name>DomolinWebSite</wildfly-war-name>
         <ant-target>${ant-target}</ant-target>
         <context-root>${context-root}</context-root>
