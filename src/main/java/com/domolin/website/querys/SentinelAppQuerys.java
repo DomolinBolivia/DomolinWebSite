@@ -1,9 +1,10 @@
 package com.domolin.website.querys;
 
-import com.domolin.database.anno.JpqlQuery;
-import com.domolin.database.anno.QueryRepository;
-import com.domolin.database.anno.SqlNativeQuery;
-import com.domolin.database.anno.SqlParam;
+import com.domolin.database.annot.JpqlQuery;
+import com.domolin.database.annot.PersistEntity;
+import com.domolin.database.annot.QueryRepository;
+import com.domolin.database.annot.SqlNativeQuery;
+import com.domolin.database.annot.SqlParam;
 import com.domolin.database.entities.SentinelApp;
 import java.math.BigInteger;
 
@@ -14,4 +15,7 @@ public interface SentinelAppQuerys {
     
     @JpqlQuery(queryName = SentinelApp.Q_SENTAPP_BY_CODE,entityGraph = SentinelApp.G_SENTAPP_ONLY_ROW)
     public SentinelApp findByCode(@SqlParam("code") String code);
+    
+    @PersistEntity
+    public void register(SentinelApp sentinelApp);
 }

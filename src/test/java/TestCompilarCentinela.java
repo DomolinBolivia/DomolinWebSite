@@ -1,4 +1,5 @@
 
+import com.domolin.database.error.NoFountRepoException;
 import com.domolin.website.facade.SentinelAppDownloadFacade;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,7 +9,7 @@ import org.apache.maven.shared.invoker.MavenInvocationException;
 
 public class TestCompilarCentinela {
 
-    public static void main(String cors[]) throws MavenInvocationException, IOException {
+    public static void main(String cors[]) throws MavenInvocationException, IOException, NoFountRepoException {
 
         System.out.println("MAVEN_HOME: " + System.getenv("M2_HOME"));
 

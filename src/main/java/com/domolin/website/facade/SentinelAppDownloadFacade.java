@@ -19,6 +19,7 @@ import java.math.BigInteger;
 import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.apache.maven.shared.invoker.MavenInvocationException;
@@ -73,7 +74,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         return code;
     }
 
-    public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException {
+    public void generateSentinelApp(String code, String os,OutputStream outputStream) throws IOException, MavenInvocationException, NoFountRepoException {
         // Compilamos el proyecto sentinela
         Path tempApp = executeMavenCompilationSentinel();
 
@@ -92,7 +93,15 @@ public class SentinelAppDownloadFacade implements Serializable {
         zipDirectory(outputStream, pathDirInstaller);
 
         // Registrando la aplicacion generada
-        SentinelApp.registerSentinelApp(code, hashSha512, 1, "1.0.0v");
+        SentinelApp sentinelApp = new SentinelApp();
+        sentinelApp.setGenerationDate(new Date());
+        sentinelApp.setHash_app(hashSha512);
+        sentinelApp.setCode(code);
+        sentinelApp.setVersion(1);
+        sentinelApp.setVersionName("1.0.0v");
+        
+        SentinelAppQuerys appQuerys = DBConnector.getQueryRepository(SentinelAppQuerys.class);
+        appQuerys.register(sentinelApp);
     }
 
     private Path executeMavenCompilationSentinel() throws MavenInvocationException, IOException {

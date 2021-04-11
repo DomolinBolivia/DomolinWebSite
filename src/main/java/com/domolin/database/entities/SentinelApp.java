@@ -1,9 +1,7 @@
 package com.domolin.database.entities;
 
 import com.domolin.database.entities.base.BaseSentinelApp;
-import com.domolin.database.util.QueryUtil;
 import java.math.BigInteger;
-import java.util.Date;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedEntityGraphs;
 import javax.persistence.NamedQueries;
@@ -24,17 +22,6 @@ public class SentinelApp extends BaseSentinelApp{
     
     private final static long BASE_CODE = 61;
     private final static char HEX_CHARS_CODE_BASE[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    
-    public static void registerSentinelApp(String code,String hashSentinelJar, int version, String versionName){
-        BaseSentinelApp sentinelApp = new SentinelApp();
-        sentinelApp.setGenerationDate(new Date());
-        sentinelApp.setHash_app(hashSentinelJar);
-        sentinelApp.setCode(code);
-        sentinelApp.setVersion(version);
-        sentinelApp.setVersionName(versionName);
-        
-        QueryUtil.insert(sentinelApp);
-    }
         
     public static String encodeCode(BigInteger decimalBig) {
         long decimal = decimalBig.longValue();

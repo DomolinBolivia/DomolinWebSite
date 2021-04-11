@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Account extends BaseAccount{   
     
-    @OneToOne(optional = true,fetch = FetchType.LAZY)
+    @OneToOne(optional = true,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "fid_person")
     protected Person person;
 
