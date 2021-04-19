@@ -1,231 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='../../lib/layout-xml.xsd'
     width="match_parent"
-    height="match_parent">
-    <TextView
-        margin="20px"
-        drawableLeft="assets/imgs/icon_medium.png"
-        iconHeight="70px"
-        iconWidth="70px"
-        text="Domolin"
-        textColor="#E8E88A"
-        textSize="50px"
-        shadowColor="#E8E88A"
-        shadowRadius="10"/>
+    height="match_parent"
+    orientation="vertical">
+    <!-- Menu de opciones-->
     <LinearLayout
-        width="match_parent"
-        height="match_parent"
-        orientation="vertical">
-        <!-- Menu de opciones-->
-        <LinearLayout
-            width="wrap_content"
-            height="wrap_content"
-            orientation="horizontal"
-            layoutGravity="right"
-            marginTop="20px"
-            marginRight="30px">
-            <LinkButton
-                text="Domótica e IOT"
-                marginLeft="10px"
-                marginRight="10px"
-                cssClassList="textSelected"
-                onClick="onClickHome"/>
-            <LinkButton
-                text="Descargas"
-                marginLeft="10px"
-                marginRight="10px"
-                onClick="onClickDescargas"/>
-            <LinkButton
-                text="Acerca de Nosotros"
-                marginLeft="10px"
-                marginRight="10px"
-                onClick="onClickAcercaDe"/>
-            <LinkButton
-                text="Ingresar"
-                marginLeft="10px"
-                marginRight="10px"
-                onClick="onClickLogin"/>
-        </LinearLayout>
-        <!-- Cuerpo de pagina-->
-        <LinearLayout
-            width="match_parent"
-            height="match_parent"
-            orientation="horizontal"
-            weight="1.0">
-            <LinearLayout
-                weight="0.5"
-                marginTop="30px"
-                width="match_parent"
-                height="wrap_content"
-                orientation="vertical">
-                <LinearLayout
-                    orientation="vertical"
-                    marginLeft="20px"
-                    layoutGravity="center_horizontal">
-                    <ImageView
-                        src="pages/home/imgs/ic_servicios.png"
-                        width="460px"
-                        height="300px"
-                        layoutGravity="center_horizontal"/>
-                    <TextView
-                        id="texto"
-                        text="Empresa dedicada al desarrollo de herramientas hardware y software para la &lt;span style=&apos;color:#FD500C&apos;&gt;Domótica, Inmótica e IOT&lt;/span&gt; con &lt;span style=&apos;color:#FD500C&apos;&gt;Inteligencia Artifical&lt;/span&gt; para una mayor efectividad en el control de su empresa u hogar."
-                        textColor="#D2D3D5"
-                        marginTop="20px"
-                        width="460px"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                weight="0.5"
-                width="match_parent"
-                orientation="vertical"
-                marginLeft="50px">
-                <LinearLayout
-                    orientation="horizontal"
-                    layoutGravity="center_horizontal">
-                    <ImageButton
-                        src="assets/imgs/ic_back_photo.png"
-                        width="20px"
-                        height="60px"
-                        marginRight="20px"
-                        layoutGravity="center_vertical"
-                        onClick="onClickAnteriorFoto"/>
-                    <FrameLayout
-                        background="pages/home/imgs/bg_panel_photos.9.png">
-                        <ImageView
-                            id="imgFoto"
-                            src="pages/home/photos/ic_photo_1.png"
-                            width="450px"
-                            height="330px"/>
-                    </FrameLayout>
-                    <ImageButton
-                        src="assets/imgs/ic_next_photo.png"
-                        width="20px"
-                        height="60px"
-                        marginRight="20px"
-                        layoutGravity="center_vertical"
-                        onClick="onClickSiguienteFoto"/>
-                </LinearLayout>
-                <LinearLayout
-                    orientation="horizontal"
-                    layoutGravity="center_horizontal">
-                    <FrameLayout
-                        id="fraTextoFoto1"
-                        marginLeft="10px"
-                        marginRight="10px"
-                        width="50px"
-                        height="50px"
-                        cssClassList="numeroSeleccionado">
-                        <TextView
-                            text="1"
-                            textSize="20px"
-                            textColor="#AFC0C8"
-                            layoutGravity="center"/>
-                    </FrameLayout>
-                    <FrameLayout
-                        id="fraTextoFoto2"
-                        marginLeft="10px"
-                        marginRight="10px"
-                        width="50px"
-                        height="50px">
-                        <TextView
-                            text="2"
-                            textSize="20px"
-                            textColor="#AFC0C8"
-                            layoutGravity="center"/>
-                    </FrameLayout>
-                    <FrameLayout
-                        id="fraTextoFoto3"
-                        marginLeft="10px"
-                        marginRight="10px"
-                        width="50px"
-                        height="50px">
-                        <TextView
-                            text="3"
-                            textSize="20px"
-                            textColor="#AFC0C8"
-                            layoutGravity="center"/>
-                    </FrameLayout>
-                    <FrameLayout
-                        id="fraTextoFoto4"
-                        marginLeft="10px"
-                        marginRight="10px"
-                        width="50px"
-                        height="50px">
-                        <TextView
-                            text="4"
-                            textSize="20px"
-                            textColor="#AFC0C8"
-                            layoutGravity="center"/>
-                    </FrameLayout>
-                </LinearLayout>
-                <Button
-                    text="Prueba gratuita"
-                    layoutGravity="center_horizontal"
-                    marginTop="20px"
-                    onClick="onClickPruebaGratuita"/>
-            </LinearLayout>
-        </LinearLayout>
-        <!-- Dispositivos principales-->
-        <LinearLayout
-            width="match_parent"
-            height="wrap_content"
+        width="wrap_content"
+        height="wrap_content"
+        orientation="horizontal"
+        layoutGravity="right"
+        marginTop="10px"
+        marginRight="30px">
+        <LinkButton
+            text="Domótica e IOT"
             marginLeft="10px"
             marginRight="10px"
-            marginBottom="50px"
+            cssClassList="textSelected"
+            onClick="onClickHome"/>
+        <LinkButton
+            text="Descargas"
+            marginLeft="10px"
+            marginRight="10px"
+            onClick="onClickDescargas"/>
+        <LinkButton
+            text="Acerca de Nosotros"
+            marginLeft="10px"
+            marginRight="10px"
+            onClick="onClickAcercaDe"/>
+        <LinkButton
+            text="Ingresar"
+            marginLeft="10px"
+            marginRight="10px"
+            onClick="onClickLogin"/>
+    </LinearLayout>
+    <FlowLayout
+        width="match_parent">
+        <LinearLayout
+            marginTop="30px"
+            width="wrap_content"
+            height="wrap_content"
             orientation="vertical">
             <TextView
-                textColor="#7CE7E9"
-                text="Dispositivos destacados"
-                textSize="20px"
-                singleLine="true"/>
+                margin="20px"
+                drawableLeft="assets/imgs/icon_medium.png"
+                iconHeight="70px"
+                iconWidth="70px"
+                text="Domolin"
+                textColor="#E8E88A"
+                textSize="50px"
+                shadowColor="#E8E88A"
+                shadowRadius="10"/>
+            <ImageView
+                src="pages/home/imgs/ic_servicios.png"
+                width="460px"
+                height="300px"/>
+            <TextView
+                id="texto"
+                text="Empresa dedicada al desarrollo de herramientas hardware y software para la &lt;span style=&apos;color:#FD500C&apos;&gt;Domótica, Inmótica e IOT&lt;/span&gt; con &lt;span style=&apos;color:#FD500C&apos;&gt;Inteligencia Artifical&lt;/span&gt; para una mayor efectividad en el control de su empresa u hogar."
+                textColor="#D2D3D5"
+                marginTop="20px"
+                width="460px"
+                layoutGravity="center_horizontal"/>
+        </LinearLayout>
+        <!-- Banner -->
+        <LinearLayout
+            width="wrap_content"
+            orientation="vertical"
+            marginLeft="50px"
+            marginTop="100px">
             <LinearLayout
-                width="wrap_content"
-                height="wrap_content"
                 orientation="horizontal"
                 layoutGravity="center_horizontal">
-                <LinkButton
-                    drawableTop="pages/home/imgs/ic_rgb.png"
-                    marginLeft="30px"
-                    marginRight="30px"
-                    iconWidth="100px"
-                    iconHeight="100px"
-                    text="Interruptor RGB tactil"
-                    singleLine="false"/>
-                <LinkButton
-                    drawableTop="pages/home/imgs/ic_portero.png"
-                    marginLeft="30px"
-                    marginRight="30px"
-                    iconWidth="100px"
-                    iconHeight="100px"
-                    text="Portero Eléctrico"
-                    singleLine="false"/>
-                <LinkButton
-                    drawableTop="pages/home/imgs/ic_camara_ip.png"
-                    marginLeft="30px"
-                    marginRight="30px"
-                    iconWidth="100px"
-                    iconHeight="100px"
-                    text="Camara IP"/>
-                <LinkButton
-                    drawableTop="pages/home/imgs/ic_rgb.png"
-                    marginLeft="30px"
-                    marginRight="30px"
-                    iconWidth="100px"
-                    iconHeight="100px"
-                    text="Interruptor RGB tactil"
-                    singleLine="false"/>
-                <LinkButton
-                    drawableTop="pages/home/imgs/ic_portero.png"
-                    marginLeft="30px"
-                    marginRight="30px"
-                    iconWidth="100px"
-                    iconHeight="100px"
-                    text="Interruptor RGB tactil"
-                    singleLine="false"/>
+                <ImageButton
+                    src="assets/imgs/ic_back_photo.png"
+                    width="25px"
+                    height="70px"
+                    marginRight="20px"
+                    layoutGravity="center_vertical"
+                    onClick="onClickAnteriorFoto"/>
+                <FrameLayout
+                    background="pages/home/imgs/bg_panel_photos.9.png">
+                    <ImageView
+                        id="imgFoto"
+                        src="pages/home/photos/ic_photo_1.png"
+                        width="450px"
+                        height="330px"/>
+                </FrameLayout>
+                <ImageButton
+                    src="assets/imgs/ic_next_photo.png"
+                    width="25px"
+                    height="70px"
+                    marginRight="20px"
+                    layoutGravity="center_vertical"
+                    onClick="onClickSiguienteFoto"/>
             </LinearLayout>
+            <LinearLayout
+                orientation="horizontal"
+                layoutGravity="center_horizontal">
+                <TextView
+                    id="txtFoto1"
+                    width="50px"
+                    height="50px"
+                    background="pages/home/imgs/bg_nro_img.png"
+                    text="1"
+                    textGravity="center"
+                    textColor="#AFC0C8"/>
+                <TextView
+                    id="txtFoto2"
+                    width="50px"
+                    height="50px"
+                    text="2"
+                    textGravity="center"
+                    textColor="#AFC0C8"/>
+                <TextView
+                    id="txtFoto3"
+                    width="50px"
+                    height="50px"
+                    text="3"
+                    textGravity="center"
+                    textColor="#AFC0C8"/>
+                <TextView
+                    id="txtFoto4"
+                    width="50px"
+                    height="50px"
+                    text="4"
+                    textGravity="center"
+                    textColor="#AFC0C8"/>
+            </LinearLayout>
+            <Button
+                text="Prueba gratuita"
+                layoutGravity="center_horizontal"
+                marginTop="20px"
+                onClick="onClickPruebaGratuita"/>
         </LinearLayout>
+    </FlowLayout>
+    <LinearLayout
+        width="match_parent"
+        height="wrap_content"
+        marginLeft="10px"
+        marginRight="10px"
+        marginBottom="10px"
+        orientation="vertical">
+        <TextView
+            textColor="#7CE7E9"
+            text="Dispositivos destacados"
+            textSize="20px"
+            singleLine="true"/>
+        <FlowLayout
+            marginTop="10px"
+            marginLeft="100px"
+            marginRight="100px"
+            width="match_parent"
+            height="wrap_content">
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_rgb.png"
+                marginLeft="30px"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_portero.png"
+                marginLeft="30px"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Portero Eléctrico"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_camara_ip.png"
+                marginLeft="30px"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Camara IP"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_rgb.png"
+                marginLeft="30px"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
+            <LinkButton
+                drawableTop="pages/home/imgs/ic_portero.png"
+                marginLeft="30px"
+                marginRight="30px"
+                iconWidth="100px"
+                iconHeight="100px"
+                text="Interruptor RGB tactil"
+                singleLine="false"/>
+        </FlowLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

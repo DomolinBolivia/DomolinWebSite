@@ -9,10 +9,3 @@
 }
 .botonDispositivo:active {
 }
-
-.numeroSeleccionado {
-    background-color: #132333;
-    border-radius: 50%;
-    display: inline-block;
-    border: 3px #0BFFFF solid;
-}

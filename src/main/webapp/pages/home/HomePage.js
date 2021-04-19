@@ -25,16 +25,16 @@ class HomePage extends Page {
 
     // @Override
     async onStart() {
-        this.imgFoto = this.findViewById("imgFoto");
-        this.runnable = new Runnable();
-        // let this_ = this;
-        this.runnable.run=()=>{
-            this.siguienteFoto();
-        };
-        this.timerFotos.schedule(this.runnable,3000);
-        
-        let dialog = new DesarrolloDialog(this);
-        await dialog.show();
+//        this.imgFoto = this.findViewById("imgFoto");
+//        this.runnable = new Runnable();
+//        // let this_ = this;
+//        this.runnable.run=()=>{
+//            this.siguienteFoto();
+//        };
+//        this.timerFotos.schedule(this.runnable,3000);
+//        
+//        let dialog = new DesarrolloDialog(this);
+//        await dialog.show();
     }
 
     async onPause(){
@@ -57,21 +57,21 @@ class HomePage extends Page {
     }
 
     async siguienteFoto(){
-        (this.findViewById(`fraTextoFoto${this.fotoActual}`)).removeCssClass("numeroSeleccionado");
+        (this.findViewById(`txtFoto${this.fotoActual}`)).setBackground(null);
         this.fotoActual++;
-        if(this.fotoActual>4)
+        if(this.fotoActual > 4)
             this.fotoActual = 1;
         this.imgFoto.setImageResource(`pages/home/photos/ic_photo_${this.fotoActual}.png`);
-        (this.findViewById(`fraTextoFoto${this.fotoActual}`)).addCssClass("numeroSeleccionado");
+        (this.findViewById(`txtFoto${this.fotoActual}`)).setBackground("pages/home/imgs/bg_nro_img.png");
     }
 
     async anteriorFoto(){
-        (this.findViewById(`fraTextoFoto${this.fotoActual}`)).removeCssClass("numeroSeleccionado");
+        (this.findViewById(`txtFoto${this.fotoActual}`)).setBackground(null);
         this.fotoActual--;
         if(this.fotoActual<1)
             this.fotoActual = 4;
         this.imgFoto.setImageResource(`pages/home/photos/ic_photo_${this.fotoActual}.png`);
-        (this.findViewById(`fraTextoFoto${this.fotoActual}`)).addCssClass("numeroSeleccionado");
+        (this.findViewById(`txtFoto${this.fotoActual}`)).setBackground("pages/home/imgs/bg_nro_img.png");
     }
 
     async onClickSiguienteFoto(){
