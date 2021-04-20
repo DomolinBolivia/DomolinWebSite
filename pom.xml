@@ -142,9 +142,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--mvn antrun:run@ant_builder-->
-            <!--mvn fizzed-watcher:run-->
-            <!--mvn antrun:run@ant_builder -Dant-target=deploy-war-->
+            <!-- mvn fizzed-watcher:run -->
         </plugins>
     </build>
 </project>

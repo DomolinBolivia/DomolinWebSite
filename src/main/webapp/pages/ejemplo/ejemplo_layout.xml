@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    width="match_parent"
+    height="match_parent"
+    orientation="horizontal"
+    background="#2E0000"
+    padding="40px">
+    <Button
+        text="Hazme Click    sas"
+        onClick="onClickMeHiciste"/>
+    <Button
+        text="Hazme Click 2"/>
+</LinearLayout>

@@ -37,16 +37,19 @@ class HomePage extends Page {
 //        await dialog.show();
     }
 
+    //@Override
     async onPause(){
         console.log("On pause");
         this.timerFotos.stop();
     }
 
+    //@Override
     async onDestroy(){
         console.log("On destroy");
         this.timerFotos.stop();
     }
 
+    //@Override
     async onResume(){
         console.log("On resume");
         this.timerFotos.start();
