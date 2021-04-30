@@ -2,7 +2,7 @@
 <LinearLayout
     width="match_parent"
     height="match_parent"
-    orientation="horizontal"
+    orientation="vertical"
     background="#2E0000"
     padding="40px">
     <Button
