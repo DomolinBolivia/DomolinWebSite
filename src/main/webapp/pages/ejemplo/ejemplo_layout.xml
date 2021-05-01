@@ -8,6 +8,7 @@
     <Button
         text="Hazme Click    sas"
         onClick="onClickMeHiciste"/>
+    
     <Button
         text="Hazme Click 2"/>
 </LinearLayout>

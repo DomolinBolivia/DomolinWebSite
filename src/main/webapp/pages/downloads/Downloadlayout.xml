@@ -1,170 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FrameLayout
+<ScrollView
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/ronaldcoarite/cuyjs/master/src/layout-xml.xsd'
+    xsi:noNamespaceSchemaLocation='../../lib/layout-xml.xsd'
     width="match_parent"
-    height="match_parent">
-    <TextView
-        iconHeight="70px"
-        iconWidth="70px"
-        text="Domolin"
-        textColor="#E8E88A"
-        textSize="50px"
-        shadowColor="#E8E88A"
-        shadowRadius="10"
-        drawableLeft="assets/imgs/icon_medium.png"/>
+    height="match_parent"
+    padding="10px">
     <LinearLayout
-        width="wrap_content"
-        height="wrap_content"
-        orientation="horizontal"
-        layoutGravity="right|top"
-        marginTop="20px"
-        marginRight="30px">
-        <LinkButton
-            text="Domótica e IOT"
-            marginLeft="10px"
-            marginRight="10px"
-            onClick="onClickHome"/>
-        <LinkButton
-            text="Descargas"
-            marginLeft="10px"
-            marginRight="10px"
-            cssClassList="textSelected"
-            onClick="onClickDescargas"/>
-        <LinkButton
-            text="Acerca de Nosotros"
-            marginLeft="10px"
-            marginRight="10px"
-            onClick="onClickAcercaDe"/>
-        <LinkButton
-            text="Ingresar"
-            marginLeft="10px"
-            marginRight="10px"
-            onClick="onClickLogin"/>
-    </LinearLayout>
-    <LinearLayout
-        orientation="horizontal"
-        layoutGravity="center">
-        <LinearLayout
-            orientation="vertical">
-            <TextView
-                background="pages/downloads/imgs/bg_barra_descargar.9.png"
-                text="Centinela App para Windows"
-                textColor="#27EDEC"
-                textSize="14px"
-                singleLine="true"
-                width="350px"
-                marginBottom="20px"/>
+        orientation="vertical"
+        width="match_parent">
+        <!-- Menu de opciones-->
+        <MenuLayout
+            width="wrap_content"
+            height="wrap_content"
+            orientation="horizontal"
+            layoutGravity="right"
+            marginTop="10px"
+            marginRight="30px">
+            <LinkButton
+                text="Domótica e IOT"
+                marginLeft="10px"
+                marginRight="10px"
+                onClick="onClickHome"/>
+            <LinkButton
+                text="Descargas"
+                marginLeft="10px"
+                marginRight="10px"
+                cssClassList="textSelected"
+                onClick="onClickDescargas"/>
+            <LinkButton
+                text="Acerca de Nosotros"
+                marginLeft="10px"
+                marginRight="10px"
+                onClick="onClickAcercaDe"/>
+            <LinkButton
+                text="Ingresar"
+                marginLeft="10px"
+                marginRight="10px"
+                onClick="onClickLogin"/>
+        </MenuLayout>
+        <TextView
+            margin="20px"
+            drawableLeft="assets/imgs/icon_medium.png"
+            iconHeight="70px"
+            iconWidth="70px"
+            text="Domolin"
+            textColor="#E8E88A"
+            textSize="50px"
+            shadowColor="#E8E88A"
+            shadowRadius="10"/>
+        <FlowLayout
+            width="match_parent">
+            <LinearLayout
+                orientation="vertical">
+                <TextView
+                    background="pages/downloads/imgs/bg_barra_descargar.9.png"
+                    text="Centinela App para Windows"
+                    textColor="#27EDEC"
+                    textSize="14px"
+                    singleLine="true"
+                    width="350px"
+                    marginBottom="20px"/>
+                <LinearLayout
+                    orientation="vertical"
+                    background = "pages/downloads/imgs/bg_panel_app.9.png">
+                    <ImageView
+                        src="pages/downloads/imgs/ic_icon_smart_hub.png"
+                        width="150px"
+                        height="150px"
+                        margin="40px"
+                        layoutGravity="center_horizontal"/>
+                    <RelativeLayout
+                        marginLeft="20px"
+                        marginRight="20px">
+                        <ImageView
+                            id="imgDownloadAppWindows"
+                            src="pages/downloads/imgs/ic_windows.png"
+                            width="80px"
+                            height="70px"/>
+                        <LinkButton
+                            id="linkBtnVideoWindows"
+                            text="Video de instalación"
+                            toRightOf="imgDownloadAppWindows"
+                            drawableLeft="assets/imgs/ic_youtube.png"/>
+                        <LinkButton
+                            text="Manual de usuario"
+                            toRightOf="imgDownloadAppWindows"
+                            below="linkBtnVideoWindows"
+                            drawableLeft="assets/imgs/ic_manual.png"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <Button
+                    marginTop="20px"
+                    text="Descargar"
+                    layoutGravity="center_horizontal"
+                    drawableLeft="assets/imgs/ic_download.png"
+                    onClick="onClickDescargarWindows"/>
+            </LinearLayout>
+            <LinearLayout
+                marginLeft="20px"
+                orientation="vertical">
+                <TextView
+                    background="pages/downloads/imgs/bg_barra_descargar.9.png"
+                    text="Centinela App para Linux"
+                    textColor="#27EDEC"
+                    textSize="14px"
+                    singleLine="true"
+                    width="350px"
+                    marginBottom="20px"/>
+                <LinearLayout
+                    orientation="vertical"
+                    background = "pages/downloads/imgs/bg_panel_app.9.png">
+                    <ImageView
+                        src="pages/downloads/imgs/ic_icon_smart_hub.png"
+                        width="150px"
+                        height="150px"
+                        margin="40px"
+                        layoutGravity="center_horizontal" />
+                    <RelativeLayout
+                        marginLeft="20px"
+                        marginRight="20px">
+                        <ImageView
+                            id="imgDownloadAppWindows"
+                            src="pages/downloads/imgs/ic_linux.png"
+                            width="80px"
+                            height="70px" />
+                        <LinkButton
+                            id="linkBtnVideoWindows"
+                            text="Video de instalación"
+                            toRightOf="imgDownloadAppWindows"
+                            drawableLeft="assets/imgs/ic_youtube.png" />
+                        <LinkButton
+                            text="Manual de usuario"
+                            toRightOf="imgDownloadAppWindows"
+                            below="linkBtnVideoWindows"
+                            drawableLeft="assets/imgs/ic_manual.png" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <Button
+                    marginTop="20px"
+                    text="Descargar"
+                    layoutGravity="center_horizontal"
+                    drawableLeft="assets/imgs/ic_download.png"
+                    onClick="onClickDescargarLinux"/>
+            </LinearLayout>
             <LinearLayout
                 orientation="vertical"
-                background = "pages/downloads/imgs/bg_panel_app.9.png">
-                <ImageView
-                    src="pages/downloads/imgs/ic_icon_smart_hub.png"
-                    width="150px"
-                    height="150px"
-                    margin="40px"
-                    layoutGravity="center_horizontal"/>
-                <RelativeLayout
-                    marginLeft="20px"
-                    marginRight="20px">
-                    <ImageView
-                        id="imgDownloadAppWindows"
-                        src="pages/downloads/imgs/ic_windows.png"
-                        width="80px"
-                        height="70px"/>
-                    <LinkButton
-                        id="linkBtnVideoWindows"
-                        text="Video de instalación"
-                        toRightOf="imgDownloadAppWindows"
-                        drawableLeft="assets/imgs/ic_youtube.png"/>
-                    <LinkButton
-                        text="Manual de usuario"
-                        toRightOf="imgDownloadAppWindows"
-                        below="linkBtnVideoWindows"
-                        drawableLeft="assets/imgs/ic_manual.png"/>
-                </RelativeLayout>
+                marginLeft="30px">
+                <TextView
+                    text="INFORMACIÓN"
+                    textColor="#27EDEC"
+                    marginBottom="30px"/>
+                <TextView
+                    text="La aplicación Centinela se instalara en su computadora local, necesaria para la conectividad con el servidor DOMOLIN para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
+    &#13;&#10;
+    &#13;&#10;
+    &#13;&#10;
+    &#xD;&#xA;
+    &#xD;&#xA;
+    &#xD;&#xA;
+    Centinela se ejecutara en Background(Segundo Plano) monitorizando eventos y acciones
+    a realizar entre los dispositivos."
+                    width="300px"/>
+                <TextView
+                    text="CONSULTAR PRODUCTO"
+                    textColor="#27EDEC"
+                    singleLine="true"
+                    marginBottom="30px"
+                    marginTop="30px"/>
+                <TextView
+                    text="79642513"
+                    singleLine="true"/>
             </LinearLayout>
-            <Button
-                marginTop="20px"
-                text="Descargar"
-                layoutGravity="center_horizontal"
-                drawableLeft="assets/imgs/ic_download.png"
-                onClick="onClickDescargarWindows"/>
-        </LinearLayout>
-        <LinearLayout
-            marginLeft="20px"
-            orientation="vertical">
-            <TextView
-                background="pages/downloads/imgs/bg_barra_descargar.9.png"
-                text="Centinela App para Linux"
-                textColor="#27EDEC"
-                textSize="14px"
-                singleLine="true"
-                width="350px"
-                marginBottom="20px"/>
-            <LinearLayout
-                orientation="vertical"
-                background = "pages/downloads/imgs/bg_panel_app.9.png">
-                <ImageView
-                    src="pages/downloads/imgs/ic_icon_smart_hub.png"
-                    width="150px"
-                    height="150px"
-                    margin="40px"
-                    layoutGravity="center_horizontal" />
-                <RelativeLayout
-                    marginLeft="20px"
-                    marginRight="20px">
-                    <ImageView
-                        id="imgDownloadAppWindows"
-                        src="pages/downloads/imgs/ic_linux.png"
-                        width="80px"
-                        height="70px" />
-                    <LinkButton
-                        id="linkBtnVideoWindows"
-                        text="Video de instalación"
-                        toRightOf="imgDownloadAppWindows"
-                        drawableLeft="assets/imgs/ic_youtube.png" />
-                    <LinkButton
-                        text="Manual de usuario"
-                        toRightOf="imgDownloadAppWindows"
-                        below="linkBtnVideoWindows"
-                        drawableLeft="assets/imgs/ic_manual.png" />
-                </RelativeLayout>
-            </LinearLayout>
-            <Button
-                marginTop="20px"
-                text="Descargar"
-                layoutGravity="center_horizontal"
-                drawableLeft="assets/imgs/ic_download.png"
-                onClick="onClickDescargarLinux"/>
-        </LinearLayout>
-        <LinearLayout
-            orientation="vertical"
-            marginLeft="30px">
-            <TextView
-                text="INFORMACIÓN"
-                textColor="#27EDEC"
-                marginBottom="30px"/>
-            <TextView
-                text="La aplicación Centinela se instalara en su computadora local, necesaria para la conectividad con el servidor DOMOLIN para la interconectividad entre los dispositivos instalados en su hogar, negocio u empresa. 
-&#13;&#10;
-&#13;&#10;
-&#13;&#10;
-&#xD;&#xA;
-&#xD;&#xA;
-&#xD;&#xA;
-Centinela se ejecutara en Background(Segundo Plano) monitorizando eventos y acciones
-a realizar entre los dispositivos."
-                width="300px"/>
-            <TextView
-                text="CONSULTAR PRODUCTO"
-                textColor="#27EDEC"
-                singleLine="true"
-                marginBottom="30px"
-                marginTop="30px"/>
-            <TextView
-                text="79642513"
-                singleLine="true"/>
-        </LinearLayout>
+        </FlowLayout>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>

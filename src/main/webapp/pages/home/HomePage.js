@@ -25,16 +25,16 @@ class HomePage extends Page {
 
     // @Override
     async onStart() {
-//        this.imgFoto = this.findViewById("imgFoto");
-//        this.runnable = new Runnable();
-//        // let this_ = this;
-//        this.runnable.run=()=>{
-//            this.siguienteFoto();
-//        };
-//        this.timerFotos.schedule(this.runnable,3000);
-//        
-//        let dialog = new DesarrolloDialog(this);
-//        await dialog.show();
+        this.imgFoto = this.findViewById("imgFoto");
+        this.runnable = new Runnable();
+        // let this_ = this;
+        this.runnable.run=()=>{
+            this.siguienteFoto();
+        };
+        this.timerFotos.schedule(this.runnable,3000); 
+       
+        //let dialog = new DesarrolloDialog(this);
+        //await dialog.show();
     }
 
     //@Override
