@@ -10,6 +10,10 @@ class EjemploPage extends Page{
     }
     
     async onClickMeHiciste(view){
-        Toast.makeText(this,"Me hiciste click",Toast.LENGTH_SHORT);
+        //Toast.makeText(this,"Me hiciste click",Toast.LENGTH_SHORT);
+        await Resource.import('pages/ejemplo/correo/CorreoPage.js');
+        let dialog = new CorreoPage(this);
+        await dialog.show();
+                        
     }
 };
