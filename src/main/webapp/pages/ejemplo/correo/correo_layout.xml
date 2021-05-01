@@ -123,6 +123,7 @@
             id="botton"
             text="Enviar"      
             onClick="onClickSendData"      
-            marginLeft="40px"/>    
+            marginLeft="40px"
+        />    
     </LinearLayout> 
 </LinearLayout>
