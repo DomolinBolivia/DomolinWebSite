@@ -66,9 +66,12 @@ public class SentinelAppDownloadFacade implements Serializable {
     @Inject
     @ConfigParam("server.domolin.ssl.enabled")
     private String domolinSslEnabled;
+    
+    @Inject  
+    private DBConnector dBConnector;
 
     public String generateCode() throws NoFountRepoException {
-        SentinelAppQuerys appQuerys = DBConnector.getQueryRepository(SentinelAppQuerys.class);
+        SentinelAppQuerys appQuerys = dBConnector.getQueryRepository(SentinelAppQuerys.class);
         BigInteger secuencie = appQuerys.generateCode();
         String code = SentinelApp.encodeCode(secuencie);
         return code;
@@ -100,7 +103,7 @@ public class SentinelAppDownloadFacade implements Serializable {
         sentinelApp.setVersion(1);
         sentinelApp.setVersionName("1.0.0v");
         
-        SentinelAppQuerys appQuerys = DBConnector.getQueryRepository(SentinelAppQuerys.class);
+        SentinelAppQuerys appQuerys = dBConnector.getQueryRepository(SentinelAppQuerys.class);
         appQuerys.register(sentinelApp);
     }
 
