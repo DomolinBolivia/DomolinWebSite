@@ -60,7 +60,7 @@
             width="345px"
             singleLine="true"
             ems="12"
-            marginLeft="145px"
+            marginLeft="140px"
             marginBottom="20px"/>
     </LinearLayout>
     <LinearLayout     
@@ -84,7 +84,7 @@
             inputType="textDetalle"
             width="345px"
             height="150px"
-            marginLeft="145px"/>   
+            marginLeft="140px"/>   
     </LinearLayout>      
     <LinearLayout     
         orientation="horizontal"
@@ -97,28 +97,21 @@
         <ImageButton
             width="25px"
             height="25px"
-            src="pages/about/dialogs/send_mail/ic_attch_file.png"/>  
+            src="pages/about/dialogs/send_mail/ic_attch_file.png"
+            onClick="onClickSubmitFile"/>  
     </LinearLayout>
-    <LinearLayout     
+    <LinearLayout 
+        id="linAdjuntos"    
         orientation="horizontal"
-        width="match_parent">   
-        <ImageButton
-            width="50px"
-            height="50px"
-            marginLeft="200px"
-            src="pages/about/dialogs/send_mail/bg_file.9.png"/>  
-        <ImageButton
-            width="50px"
-            height="50px"
-            marginLeft="200px"
-            src="pages/about/dialogs/send_mail/bg_file.9.png"/>  
+        width="match_parent">                   
     </LinearLayout> 
     <LinearLayout     
         orientation="horizontal"
         width="match_parent"> 
         <Button 
             text="Cancelar"            
-            marginLeft="450px"/>
+            marginLeft="450px"
+            onClick="onClickClose"/>
         <Button 
             id="botton"
             text="Enviar"      

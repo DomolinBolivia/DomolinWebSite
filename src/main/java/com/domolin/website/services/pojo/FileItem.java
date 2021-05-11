@@ -5,8 +5,6 @@
  */
 package com.domolin.website.services.pojo;
 
-import java.util.LinkedList;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,14 +14,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class SendMailData {
-
-    private String email;
-    private String phone;
-    private String detail;
-    private List <FileItem> archivo = new LinkedList<>();
+public class FileItem {
     
-      
+    private String nombre;
+    private String extension;
+    private String archivoBase64;
     
-
 }

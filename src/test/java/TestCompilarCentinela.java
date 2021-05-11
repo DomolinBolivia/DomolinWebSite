@@ -1,6 +1,6 @@
 
 import com.domolin.database.error.NoFountRepoException;
-import com.domolin.website.facade.SentinelAppDownloadFacade;
+//import com.domolin.website.facade.SentinelAppDownloadFacade;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,10 +13,10 @@ public class TestCompilarCentinela {
 
         System.out.println("MAVEN_HOME: " + System.getenv("M2_HOME"));
 
-        SentinelAppDownloadFacade appDownloadFacade = new SentinelAppDownloadFacade();
-        appDownloadFacade.pathAppProyect = "D:\\proyectos\\centinela\\source\\Sentinel";
+        //SentinelAppDownloadFacade appDownloadFacade = new SentinelAppDownloadFacade();
+       // appDownloadFacade.pathAppProyect = "D:\\proyectos\\centinela\\source\\Sentinel";
         File temp = new File("C:\\Users\\Ronald\\Downloads\\sentinel.jar");
-        appDownloadFacade.generateSentinelApp("assas","asdas", new FileOutputStream(temp));
+        //appDownloadFacade.generateSentinelApp("assas","asdas", new FileOutputStream(temp));
 
 //        File fileFos = new File("C:\\Users\\GIGABYTE\\Downloads\\prueba.zip");
 //        fileFos.createNewFile();

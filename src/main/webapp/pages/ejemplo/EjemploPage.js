@@ -14,6 +14,7 @@ class EjemploPage extends Page{
         await Resource.import('pages/ejemplo/correo/CorreoPage.js');
         let dialog = new CorreoPage(this);
         await dialog.show();
+        
                         
     }
 };

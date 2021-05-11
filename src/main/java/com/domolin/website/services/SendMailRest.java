@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -31,10 +32,10 @@ public class SendMailRest extends BaseRest{
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     
-    public HashMap<String,Object> sendMail(SendMailData sendMailData) throws IOException, RequiredAuthException, NoFountRepoException {
-        //sendMailFacade.enviarCorreoConsulta(sendMailData.getMail(), sendMailData.getPhone(), sendMailData.getDetail());
+    public HashMap<String,Object> sendMail(SendMailData sendMailData) throws IOException, RequiredAuthException, NoFountRepoException, MessagingException {
+        sendMailFacade.enviarCorreoConsulta(sendMailData);
         HashMap<String,Object> m  = new  HashMap() ;
-        m.put("message", "correo de consulta enviada correctamente.");
+        m.put("SUCCESS",true); 
         
         return m;
         
