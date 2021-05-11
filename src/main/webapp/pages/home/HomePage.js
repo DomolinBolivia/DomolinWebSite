@@ -10,7 +10,7 @@ class DesarrolloDialog extends Dialog{
     }
     
     async onClickCerrar(){
-        this.finish();
+        this.cancel();
     }
 };
 
