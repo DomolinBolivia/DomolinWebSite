@@ -56,7 +56,6 @@
                     background="pages/downloads/imgs/bg_barra_descargar.9.png"
                     text="Centinela App para Windows"
                     textColor="#27EDEC"
-                    textSize="14px"
                     singleLine="true"
                     width="350px"
                     marginBottom="20px"/>
@@ -103,7 +102,6 @@
                     background="pages/downloads/imgs/bg_barra_descargar.9.png"
                     text="Centinela App para Linux"
                     textColor="#27EDEC"
-                    textSize="14px"
                     singleLine="true"
                     width="350px"
                     marginBottom="20px"/>
