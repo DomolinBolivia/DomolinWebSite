@@ -10,7 +10,7 @@ class DesarrolloDialog extends Dialog{
     }
     
     async onClickCerrar(){
-        this.finish();
+        this.cancel();
     }
 };
 
@@ -33,8 +33,8 @@ class HomePage extends Page {
         };
         this.timerFotos.schedule(this.runnable,3000); 
        
-        //let dialog = new DesarrolloDialog(this);
-        //await dialog.show();
+        let dialog = new DesarrolloDialog(this);
+        await dialog.show();
     }
 
     //@Override
