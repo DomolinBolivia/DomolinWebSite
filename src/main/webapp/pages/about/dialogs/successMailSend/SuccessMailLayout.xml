@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
-    width="700px"
-    height="320px"
-    orientation="vertical"        
+    width="500px"
+    orientation="vertical"
     background="lib/imgs/bg_dialog.9.png">
     <TextView
-        singleLine="true"
-        text="Su consulta fue enviada correctamente. DOMOLINK &lt;/br&gt;le respondera lo mas pronto posible.
-              &lt;/br&gt;&lt;/br&gt; Gracias por su interes."
+        width="match_parent"
+        text="Su consulta fue enviada correctamente. DOMOLINK le respondera lo mas pronto posible.&lt;/br&gt;&lt;/br&gt; Gracias por su interes."
         drawableLeft="pages/about/dialogs/send_mail/ic_mail_ok.png"
         iconWidth="90px"
-        iconHeight="50px"        
+        iconHeight="50px"
         marginBottom="10px"
-        marginTop="20px"/>   
+        marginTop="20px"/> 
     <TextView
-            singleLine="true"
-            text="Esta ventana se cerrara automaticamente en 3 segundos." 
-            textColor="{{Colors.HEADER}}"    
-            textSize="13px" 
-            marginLeft="98px"
-            marginTop="20px"/>     
+        width="match_parent"
+        text="Esta ventana se cerrara automaticamente en 5 segundos." 
+        textColor="{{Colors.HEADER}}"
+        marginLeft="98px"
+        marginTop="20px"/>
     <Button 
-            id="botton"
-            text="Cerrar"  
-            marginTop="25px"                    
-            marginLeft="450px"
-            onClick="onClickClose"/>          
+        id="botton"
+        text="Cerrar ahora"
+        layoutGravity="right"
+        onClick="onClickClose"/>          
 </LinearLayout>    

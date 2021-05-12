@@ -35,7 +35,6 @@ class CorreoPage extends Dialog {
             await this.findViewById('textDetail').showInfoMsg("Por favor introduzca una breve descripcion de su consulta.");
         }
         if (valido) {
-
             let textEmail = this.findViewById('textEmail').getText();
             let textPhone = this.findViewById('textPhone').getText();
             let textDetail = this.findViewById('textDetail').getText();
@@ -46,6 +45,7 @@ class CorreoPage extends Dialog {
                                 archivo: this.adjuntos}
             
             let httpRequest = new HttpPost(`services/message/sendMail`);
+            httpRequest.blockTo(view);
             httpRequest.setEntity(requestEmail);
             let httpResponse = await httpRequest.execute();
             let responseData = httpResponse.getJson(); 

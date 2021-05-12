@@ -41,7 +41,7 @@ public class SendMailFacade {
             file[i] = mailUtil.createFileMail(fileItem.getNombre(), data);
             
         }
-        mailUtil.send("wilmafuentes2014@gmail.com", String.format("Correo consulta:%s,%s", sendMailData.getEmail(), sendMailData.getPhone()), htmlMail,file);
+        mailUtil.send(sendMailData.getEmail()+","+mailUtil.getMailUserSource(),String.format("Correo consulta:%s,%s", sendMailData.getEmail(), sendMailData.getPhone()), htmlMail,file);
 
     }
 
