@@ -101,7 +101,8 @@
                     singleLine="true"
                     text="+591 79642513"
                     iconWidth="20px"
-                    iconHeight="20px"/>
+                    iconHeight="20px"
+                    onClick="onClickWhatSapp"/>
                 <TextView
                     text="Objetivo"
                     singleLine="true"
