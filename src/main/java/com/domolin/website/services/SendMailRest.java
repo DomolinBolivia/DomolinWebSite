@@ -37,6 +37,7 @@ public class SendMailRest extends BaseRest{
         HashMap<String,Object> m  = new  HashMap() ;
         m.put("SUCCESS",true); 
         
+        
         return m;
         
         

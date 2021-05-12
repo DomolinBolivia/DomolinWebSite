@@ -2,7 +2,7 @@ class CorreoPage extends Dialog {
     constructor(intent) {
 
         super(intent);
-        this.setContentView("pages/ejemplo/correo/correo_layout.xml");
+        this.setContentView("pages/about/dialogs/correo/correo_layout.xml");
 
         this.adjuntos = new Array();
     }
@@ -53,8 +53,8 @@ class CorreoPage extends Dialog {
             
             if(responseData.SUCCESS){
                 this.cancel();
-                await Resource.import('pages/ejemplo/successMailSend/SuccessMailDialog.js');
-        let dialog = new SuccessMailDialog(this);
+                await Resource.import('pages/about/dialogs/successMailSend/SuccessMailDialog.js');
+        let dialog = new SuccessMailDialog(this.getContext());
         await dialog.show();
             }
             else{

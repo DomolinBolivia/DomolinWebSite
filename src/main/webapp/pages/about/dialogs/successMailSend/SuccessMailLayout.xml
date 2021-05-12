@@ -24,5 +24,6 @@
             id="botton"
             text="Cerrar"  
             marginTop="25px"                    
-            marginLeft="450px" />          
+            marginLeft="450px"
+            onClick="onClickClose"/>          
 </LinearLayout>    

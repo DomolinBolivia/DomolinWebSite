@@ -42,8 +42,8 @@
             id="textEmail"               
             inputType="textEmail"        
             singleLine="true" 
-            width="345px"
-            marginLeft="35px"
+            width="375px"
+            marginLeft="50px"
             marginBottom="20px"
             marginTop="20px"/> 
     </LinearLayout>    
@@ -57,7 +57,7 @@
         <EditText
             id="textPhone"                
             inputType="textPhone"        
-            width="345px"
+            width="375px"
             singleLine="true"
             ems="12"
             marginLeft="140px"
@@ -82,7 +82,7 @@
         <EditText
             id="textDetail"                
             inputType="textDetalle"
-            width="345px"
+            width="375px"
             height="150px"
             marginLeft="140px"/>   
     </LinearLayout>      
