@@ -32,7 +32,7 @@ public class SendMailFacade {
         mapParams.put("detail", sendMailData.getDetail());
 
         mapParams.put("email", sendMailData.getEmail());
-        MailUtil.HtmlMail htmlMail = mailUtil.createHtmlMail(htmlStream, mapParams);
+        MailUtil.HtmlMail htmlMail = mailUtil.createHtmlMail(htmlStream, mapParams) ;
         FileMail file[] = new FileMail[sendMailData.getArchivo().size()]; // por archivo adjunto
         
         for (int i = 0; i < file.length; i++) {
