@@ -34,6 +34,7 @@ public class SendMailFacade {
         mapParams.put("email", sendMailData.getEmail());
         MailUtil.HtmlMail htmlMail = mailUtil.createHtmlMail(htmlStream, mapParams);
         FileMail file[] = new FileMail[sendMailData.getArchivo().size()]; // por archivo adjunto
+        
         for (int i = 0; i < file.length; i++) {
             FileItem fileItem = sendMailData.getArchivo().get(i);
             byte[] data = Base64.getDecoder().decode(fileItem.getArchivoBase64());

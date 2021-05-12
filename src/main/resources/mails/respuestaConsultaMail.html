@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <style>
-            
+
             @font-face {
-            font-family: 'orbitron';
-            src: url('https://domolin.com/assets/mail/orbitron.otf');
-            }
-            
-            .body{
                 font-family: 'orbitron';
+                src: url('https://domolin.com/assets/mail/orbitron.otf');
+            }
+
+            body{
+                font-family: 'orbitron';                
+            }
+
+            .detail{
+                background-color:#0E1920;
+                margin-top:0;
+            }
+            p{
+                margin-top:0px;
+                margin-bottom:0px;
+                margin-left: 30px;
+                padding: 5px;
+                color: white;    
+            }
+
+            strong{
+                margin-left: 30px;
+                padding: 5px;
+                color:#06BBB5;
             }
             .contenedor{
                 background-color:#18171c;
@@ -35,7 +48,7 @@ and open the template in the editor.
                 font-weight: normal;
                 letter-spacing: 1.5px;
                 font-size: 13px;
-                
+
                 color:#06BBB5;
                 margin-top:0px;
                 font-size:50px;
@@ -75,35 +88,41 @@ and open the template in the editor.
                 text-align: center;
                 color: white;
             }
+            a{
+               color: white; 
+            }
+            
         </style>
     </head>   
-
-    <body>
-
+    <body>    
         <div class="contenedor">
             <img src="https://domolin.com/assets/imgs/ic_logo.png" width="100" height="80">
-            <p class="primero">Domolin</p>
-            <p class="segundo">Automatizaci&oacute;n, control, confort y seguridad para tu hogar o industria.</p>
-        </div>                     
-        <br>
-        Gracias por realizar su consulta. Este es un respaldo de su consulta.  DOMOLIN le respondera lo mas pronto posible. <br>
-        <h3>Consulta </h3> <p> {{detail}} </p>
-        <h3>Datos de Contacto </h3> <p> {{email}} </p>
-        <h3>Teléfono </h3> <p> {{phone}} </p>
-
+            <h1 class="primero">Domolin</h1>
+            <h1 class="segundo">Automatizaci&oacute;n, control, confort y seguridad para tu hogar o industria.</h1>
+        </div>
+        <div class="detail" >  
+            <br>
+            <p> Gracias por realizar su consulta. Este es un respaldo de su consulta. DOMOLIN le respondera lo mas pronto posible.</p> <br>
+            <strong>Consulta: </strong> <br>
+            <p> {{detail}} </p> <br>
+            <strong>Datos de Contacto </strong> <br>
+            <p> {{email}} </p> <br>
+            <strong>Teléfono </strong> <br>
+            <p> {{phone}} </p> <br>
+        </div>
         <footer class="footer">
             <div class="inner-footer">
                 <div class = "social-links">
                     <ul>
-                        <li class ="social-items"><a href="https://developer.mozilla.org/"><img src="https://domolin.com/pages/about/imgs/ic_whatsapp.png"></a></li>
-                        <li class ="social-items"><a href="https://developer.mozilla.org/"><img src="https://domolin.com/pages/about/imgs/ic_twitter.png"></a></li>
-                        <li class ="social-items"><a href="https://developer.mozilla.org/"><img src="https://domolin.com/pages/about/imgs/ic_facebook.png"></a></li>
-                        <li class ="social-items"><a href="https://developer.mozilla.org/"><img src="https://domolin.com/pages/about/imgs/ic_youtbe.png"></a></li>
+                        <li class ="social-items"><a href="https://wa.link/dxeqfp/"><img src="https://domolin.com/pages/about/imgs/ic_whatsapp.png"></a></li>
+                        <li class ="social-items"><a href="https://twitter.com/Domolin1/"><img src="https://domolin.com/pages/about/imgs/ic_twitter.png"></a></li>
+                        <li class ="social-items"><a href="https://www.facebook.com/domolinbolivia/"><img src="https://domolin.com/pages/about/imgs/ic_facebook.png"></a></li>
+                        <li class ="social-items"><a href="https://www.youtube.com/channel/UC5wxBrryCiBj6rBYAKedGHA/"><img src="https://domolin.com/pages/about/imgs/ic_youtbe.png"></a></li>
                     </ul>
                 </div>
                 <div class="outer-footer">
-                    Todos los derechos reservados DOMOLINK 2021 <br>
-                    La Paz-Bolivia Zona Sur Bajo Seguencoma, Calle Miranda #630  <br>
+                    Todos los derechos reservados DOMOLIN 2021 <br>
+                    La Paz-Bolivia Zona Sur Bajo Seguencoma, Calle Miranda #630 <br>
                     <a href="https://www.domolin.com/"> www.domolin.com </a>
 
                 </div>

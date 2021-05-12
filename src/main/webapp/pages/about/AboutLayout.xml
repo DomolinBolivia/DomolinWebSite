@@ -88,12 +88,14 @@
                     singleLine="false"
                     text="La Paz - Bolivia Final Bajo seguencoma,&lt;br&gt;Calle Miranda Nro 630"
                     iconWidth="20px"
-                    iconHeight="20px"/>
+                    iconHeight="20px"
+                onClick="onClickUbicacion"/>
                 <LinkButton
                     drawableLeft="pages/about/imgs/ic_send_mail.png"
                     text="domolinBolivia@gmail.com"
                     iconWidth="20px"
-                    iconHeight="20px"/>
+                    iconHeight="20px"
+                    onClick="onClickMail"/>
                 <LinkButton
                     drawableLeft="pages/about/imgs/ic_contact.png"
                     singleLine="true"
@@ -149,19 +151,7 @@
                     width="30px"
                     height="30px"
                     src="pages/about/imgs/ic_facebook.png"
-                    onClick="onClickFacebook"/>
-                <ImageButton
-                    marginLeft="10px"
-                    width="30px"
-                    height="30px"
-                    src="pages/about/imgs/ic_tictoc.png"
-                    onClick="onClickTicToc"/>
-                <ImageButton
-                    marginLeft="10px"
-                    width="30px"
-                    height="30px"
-                    src="pages/about/imgs/ic_instagram.png"
-                    onClick="onClickInstagram"/>
+                    onClick="onClickFacebook"/>                                
                 <ImageButton
                     marginLeft="10px"
                     width="30px"
