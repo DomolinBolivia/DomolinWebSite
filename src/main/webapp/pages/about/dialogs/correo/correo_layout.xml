@@ -29,13 +29,13 @@
         marginLeft="100px">
         <TextView
             singleLine="true"
-            width="250px"
+            width="200px"
             text="Correo Electronico (*)"/>
         <EditText 
             id="textEmail"
             inputType="textEmail"        
             singleLine="true"
-            ems="20"/> 
+            width="290px"/> 
     </LinearLayout>    
     <LinearLayout     
         orientation="horizontal"
@@ -45,12 +45,12 @@
         <TextView
             singleLine="true"
             text="Nro Celular"
-            width="250px"/>    
+            width="200px"/>    
         <EditText
             id="textPhone"                
             inputType="textPhone"
             singleLine="true"
-            ems="20"/>
+            width="290px"/>
     </LinearLayout>
     <TextView
         singleLine="true"
@@ -63,12 +63,12 @@
         <TextView
             singleLine="true"
             text="Detalle su &lt;/br&gt; inquietud (*)"
-            width="250px"/>
+            width="200px"/>
         <EditText
             id="textDetail"                
             inputType="textDetalle"
-            ems="20"
-            lines="5"/>
+            width="290px"
+            height="150px"/>
     </LinearLayout>
     <LinearLayout
         orientation="horizontal"> 
@@ -82,12 +82,12 @@
             src="pages/about/dialogs/send_mail/ic_attch_file.png"
             onClick="onClickSubmitFile"/>  
     </LinearLayout>
-    <LinearLayout 
-        id="linAdjuntos"    
-        orientation="horizontal"
-        width="match_parent">                   
-    </LinearLayout> 
-    <LinearLayout     
+    <FlowLayout 
+        id="linAdjuntos"
+        alignment="left"
+        width="match_parent">
+    </FlowLayout>
+    <LinearLayout
         orientation="horizontal"
         layoutGravity="right"> 
         <Button 

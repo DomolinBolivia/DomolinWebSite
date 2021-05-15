@@ -1,9 +1,9 @@
+/* global Resource, FileChooser, Toast */
+
 class CorreoPage extends Dialog {
     constructor(intent) {
-
         super(intent);
         this.setContentView("pages/about/dialogs/correo/correo_layout.xml");
-
         this.adjuntos = new Array();
     }
 
@@ -12,12 +12,12 @@ class CorreoPage extends Dialog {
 
     }
     async onClickClose() {
-        this.finish();
-
+        this.cancel();
     }
+
     async onClickSendData(view) {
         // Toast.makeText(this,"Me hiciste click",Toast.LENGTH_SHORT);
-        
+
         let MAIL_PATTERN = /\S+@\S+\.\S+/;
         let valido = true;
 
@@ -40,40 +40,38 @@ class CorreoPage extends Dialog {
             let textDetail = this.findViewById('textDetail').getText();
 
             let requestEmail = {email: textEmail,
-                                phone: textPhone,
-                                detail: textDetail,
-                                archivo: this.adjuntos}
-            
+                phone: textPhone,
+                detail: textDetail,
+                archivo: this.adjuntos};
+
             let httpRequest = new HttpPost(`services/message/sendMail`);
             httpRequest.blockTo(view);
             httpRequest.setEntity(requestEmail);
             let httpResponse = await httpRequest.execute();
-            let responseData = httpResponse.getJson(); 
+            let responseData = httpResponse.getJson();
             console.log(responseData);
-            
-            if(responseData.SUCCESS){
+
+            if (responseData.SUCCESS) {
                 this.cancel();
                 await Resource.import('pages/about/dialogs/successMailSend/SuccessMailDialog.js');
-        let dialog = new SuccessMailDialog(this.getContext());
-        await dialog.show();
-            }
-            else{
-                Toast.makeText(this.getContext(),"Nose pudo enviar su consulta",Toast.LENGTH_LONG);
+                let dialog = new SuccessMailDialog(this.getContext());
+                await dialog.show();
+            } else {
+                Toast.makeText(this.getContext(), "Nose pudo enviar su consulta", Toast.LENGTH_LONG);
             }
         }
     }
 
     async onClickSubmitFile() {
-
         let linAdjuntos = this.findViewById("linAdjuntos");
-        let result = await FileChooser.showSelectFile("*/*");
+        let result = await FileChooser.showSelectFile(".pdf, .png, .jpg, .jpeg, .gif, .txt ,.zip");
         if (result) {
             let extend = result.fileExt;
             let fileItem = result.dataInBase64;
-            
+
             let requestEmail = {nombre: result.fileName,
-                                extension: extend,
-                                archivoBase64: fileItem}
+                extension: extend,
+                archivoBase64: fileItem};
 
             this.adjuntos.push(requestEmail);
 
@@ -85,6 +83,7 @@ class CorreoPage extends Dialog {
 
         }
     }
-};
+}
+;
 
 
