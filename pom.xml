@@ -16,8 +16,8 @@
 
 		<wildfly-path>${env.WILDFLY_HOME}</wildfly-path>
 		<wildfly-war-name>DomolinWebSite</wildfly-war-name>
-		<ant-target>${ant-target}</ant-target>
-		<context-root>${context-root}</context-root>
+		<!-- <ant-target>${ant-target}</ant-target>
+		<context-root>${context-root}</context-root> -->
 	</properties>
 	<!-- <profiles> <profile> <id>default</id> <properties> <ant-target>start_dev</ant-target> 
 		<context-root></context-root> </properties> <activation> <activeByDefault>true</activeByDefault> 
