@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
-    width="700px"
-    height="wrap_content"
+    width="match_parent"
+    maxWidth="700px"
+    marginLeft="5%"
+    marginRight="5%"
     orientation="vertical"    
     background="lib/imgs/bg_dialog.9.png">
     <TextView
-        singleLine="true"
+        width="match_parent"
         text="Enviar Correo Electrónico de consulta"
         drawableLeft="pages/about/dialogs/send_mail/ic_mail.png"
         iconWidth="70px"
         iconHeight="30px"
         marginBottom="20px"/>
-    <TextView    
+    <TextView
         text="Dato de Contacto"
         singleLine="true"
         textColor="{{Colors.HEADER}}"
         marginBottom="10px"/>
     <TextView
+        width="match_parent"
         drawableLeft="pages/about/dialogs/send_mail/ic_info.png"
         iconWidth="55px"
         iconHeight="40px"
-        width="match_parent"
         textColor="#E8E88A"                             
         text="Los datos de contacto, seran unicamente para responder sus consultas, DOMOLIN no usara sus datos para otros fines."/>
-    <LinearLayout
-        orientation="horizontal"
+    <FlowLayout
         width="match_parent"
-        marginLeft="100px">
+        marginLeft="50px"
+        alignment="left">
         <TextView
             singleLine="true"
             width="200px"
@@ -36,12 +38,12 @@
             inputType="textEmail"        
             singleLine="true"
             width="290px"/> 
-    </LinearLayout>    
-    <LinearLayout     
-        orientation="horizontal"
+    </FlowLayout>    
+    <FlowLayout
         width="match_parent"
-        marginLeft="100px"
-        marginTop="10px">
+        marginLeft="50px"
+        marginTop="10px"
+        alignment="left">
         <TextView
             singleLine="true"
             text="Nro Celular"
@@ -51,25 +53,26 @@
             inputType="textPhone"
             singleLine="true"
             width="290px"/>
-    </LinearLayout>
+    </FlowLayout>
     <TextView
+        marginTop="10px"
         singleLine="true"
         text="Mensaje"
-        textColor="{{Colors.HEADER}}"/>
-    <LinearLayout     
-        orientation="horizontal"
+        textColor="{{Colors.HEADER}}"
+        marginBottom="10px"/>
+    <FlowLayout     
         width="match_parent"
-        marginLeft="100px">
+        marginLeft="50px"
+        alignment="left">
         <TextView
-            singleLine="true"
-            text="Detalle su &lt;/br&gt; inquietud (*)"
+            text="Detalle su inquietud (*)"
             width="200px"/>
         <EditText
-            id="textDetail"                
+            id="textDetail"
             inputType="textDetalle"
             width="290px"
             height="150px"/>
-    </LinearLayout>
+    </FlowLayout>
     <LinearLayout
         orientation="horizontal"> 
         <TextView
@@ -91,13 +94,12 @@
         orientation="horizontal"
         layoutGravity="right"> 
         <Button 
-            text="Cancelar"
-            marginLeft="450px"
-            onClick="onClickClose"/>
-        <Button 
             id="botton"
             text="Enviar"
-            onClick="onClickSendData"      
-            marginLeft="40px"/>
+            onClick="onClickSendData"/>
+        <Button
+            marginLeft="30px"
+            text="Cancelar"
+            onClick="onClickClose"/>
     </LinearLayout> 
 </LinearLayout>
