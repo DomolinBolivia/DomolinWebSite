@@ -41,6 +41,7 @@
         <FlowLayout
             width="match_parent">
             <LinearLayout
+                maxWidth="500px"
                 marginTop="30px"
                 width="wrap_content"
                 height="wrap_content"
@@ -49,32 +50,38 @@
                     margin="20px"
                     drawableLeft="assets/imgs/icon_medium.png"
                     iconHeight="70px"
-                    iconWidth="70px"
+                    iconWidth="80px"
                     text="Domolin"
                     textColor="#E8E88A"
                     textSize="50px"
+                    marginLeft="20px"
+                    marginRight="20px"
                     shadowColor="#E8E88A"
                     shadowRadius="10"/>
                 <ImageView
                     src="pages/home/imgs/ic_servicios.png"
-                    width="460px"
+                    maxWidth="460px"
+                    width="match_parent"
+                    scaleType="scale"
                     height="300px"/>
                 <TextView
                     id="texto"
                     text="Empresa dedicada al desarrollo de herramientas hardware y software para la &lt;span style=&apos;color:#FD500C&apos;&gt;Domótica, Inmótica e IOT&lt;/span&gt; con &lt;span style=&apos;color:#FD500C&apos;&gt;Inteligencia Artifical&lt;/span&gt; para una mayor efectividad en el control de su empresa u hogar."
                     textColor="#D2D3D5"
                     marginTop="20px"
-                    width="460px"
+                    width="match_parent"
                     layoutGravity="center_horizontal"/>
             </LinearLayout>
             <!-- Banner -->
             <LinearLayout
-                width="wrap_content"
+                width="match_parent"
+                maxWidth="600px"
                 orientation="vertical"
                 marginLeft="50px"
                 marginTop="100px">
                 <LinearLayout
                     orientation="horizontal"
+                    width="match_parent"
                     layoutGravity="center_horizontal">
                     <ImageButton
                         src="assets/imgs/ic_back_photo.png"
@@ -84,11 +91,14 @@
                         layoutGravity="center_vertical"
                         onClick="onClickAnteriorFoto"/>
                     <FrameLayout
+                        width="match_parent"
+                        weight="1.0"
                         background="pages/home/imgs/bg_panel_photos.9.png">
                         <ImageView
                             id="imgFoto"
+                            scaleType="scale"
                             src="pages/home/photos/ic_photo_1.png"
-                            width="450px"
+                            width="match_parent"
                             height="330px"/>
                     </FrameLayout>
                     <ImageButton

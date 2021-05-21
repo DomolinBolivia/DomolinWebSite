@@ -27,7 +27,8 @@
         text="Los datos de contacto, seran unicamente para responder sus consultas, DOMOLIN no usara sus datos para otros fines."/>
     <FlowLayout
         width="match_parent"
-        marginLeft="50px"
+        marginLeft="40px"
+        marginTop="10px"
         alignment="left">
         <TextView
             singleLine="true"
@@ -37,11 +38,11 @@
             id="textEmail"
             inputType="textEmail"        
             singleLine="true"
-            width="290px"/> 
+            width="250px"/>
     </FlowLayout>    
     <FlowLayout
         width="match_parent"
-        marginLeft="50px"
+        marginLeft="40px"
         marginTop="10px"
         alignment="left">
         <TextView
@@ -52,7 +53,7 @@
             id="textPhone"                
             inputType="textPhone"
             singleLine="true"
-            width="290px"/>
+            width="250px"/>
     </FlowLayout>
     <TextView
         marginTop="10px"
@@ -62,7 +63,7 @@
         marginBottom="10px"/>
     <FlowLayout     
         width="match_parent"
-        marginLeft="50px"
+        marginLeft="40px"
         alignment="left">
         <TextView
             text="Detalle su inquietud (*)"
@@ -70,7 +71,7 @@
         <EditText
             id="textDetail"
             inputType="textDetalle"
-            width="290px"
+            width="250px"
             height="150px"/>
     </FlowLayout>
     <LinearLayout

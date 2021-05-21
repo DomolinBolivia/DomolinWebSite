@@ -43,7 +43,7 @@
             margin="20px"
             drawableLeft="assets/imgs/icon_medium.png"
             iconHeight="70px"
-            iconWidth="70px"
+            iconWidth="80px"
             text="Domolin"
             textColor="#E8E88A"
             textSize="50px"
@@ -75,6 +75,8 @@
             </FrameLayout>
             <!-- Informacion -->
             <LinearLayout
+                width="match_parent"
+                maxWidth="550px"
                 orientation="vertical"
                 padding="10px">
                 <TextView
@@ -83,16 +85,15 @@
                     marginBottom="20px"
                     textColor="{{Colors.HEADER}}"/>
                 <LinkButton
-                    width="400px"
+                    width="match_parent"
                     drawableLeft="pages/about/imgs/ic_location.png"
-                    singleLine="false"
                     text="La Paz - Bolivia Final Bajo seguencoma,&lt;br&gt;Calle Miranda Nro 630"
                     iconWidth="20px"
                     iconHeight="20px"
-                onClick="onClickUbicacion"/>
+                    onClick="onClickUbicacion"/>
                 <LinkButton
                     drawableLeft="pages/about/imgs/ic_send_mail.png"
-                    text="domolinBolivia@gmail.com"
+                    text="contacto@domolin.com"
                     iconWidth="20px"
                     iconHeight="20px"
                     onClick="onClickMail"/>
@@ -110,7 +111,7 @@
                     marginTop="20px"
                     textColor="{{Colors.HEADER}}"/>
                 <TextView
-                    width="500px"
+                    width="match_parent"
                     text="Desarrollar productos de Hardware y Software que ayuden a  mejorar la calidad de vida y seguridad para las empresas, hogares y personas. &lt;/br&gt;&lt;/br&gt;Interconectar nuestros productos y brindar un mejor servicio a la facilidad de un solo portal de control"/>
                 <TextView
                     text="Misión"
@@ -119,7 +120,7 @@
                     marginTop="20px"
                     textColor="{{Colors.HEADER}}"/>
                 <TextView
-                    width="500px"
+                    width="match_parent"
                     text="Ofrecer a nuestros clientes los mejores servicios de: seguridad, control y monitoréo mediante IOT"/>
             </LinearLayout>
         </FlowLayout>
