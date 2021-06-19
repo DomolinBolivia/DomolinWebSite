@@ -33,8 +33,10 @@ class HomePage extends Page {
         };
         this.timerFotos.schedule(this.runnable,3000); 
        
-        let dialog = new DesarrolloDialog(this);
-        await dialog.show();
+//        let dialog = new DesarrolloDialog(this);
+//        await dialog.show();
+        
+        await this.loadListDevices();
     }
 
     //@Override
@@ -107,5 +109,44 @@ class HomePage extends Page {
     async onClickLogin(){
         sessionStorage.clear();
         window.location.replace(Config.LOGIN_DOMOLIN);
+    }
+    async loadListDevices(){
+        
+        let httpReq = new HttpGet(`services/device/listDevice`);
+        let httpRes = await httpReq.execute();
+        let listDevices = httpRes.getJson();
+        let flowDevices = this.findViewById('flowDevices');
+        for(let device of listDevices){
+            
+            let btnDevice = new LinkButton(this);
+            btnDevice.device = device;
+            await btnDevice.setText(device.name);
+        
+        
+            let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${device.code}`);
+            let httpResIcon = await httpReqIcon.execute();
+            let iconResult = httpResIcon.getJson();
+            await btnDevice.setMarginLeft('30px');
+            await btnDevice.setMarginRight('30px');
+            await btnDevice.setIconWidth('100px');
+            await btnDevice.setIconHeight('100px');
+            btnDevice.setOnClickListener('onClickDevice');
+            await btnDevice.setDrawableTop(`data:image/${iconResult.iconFormat};base64, ${iconResult.iconBase64}`);
+            await flowDevices.addView(btnDevice);
+        }                         
+    }
+    async onClickDevice(view){
+        
+        //await Toast.makeText(this.getContext(),'DISP: '+view.device.code,Toast.LENGTH_SHORT);
+        await Resource.import("pages/detail_device/DetailDevicePage.js");
+        let intent = new Intent(this,"DetailDevicePage");
+        intent.putExtra("device_id",view.device.id);
+        intent.putExtra("device_code",view.device.code);
+        intent.putExtra("device_name",view.device.name);
+        intent.putExtra("device_description",view.device.description);              
+        intent.putExtra("device_linkInstalation",view.device.linkinstalation);
+        intent.putExtra("device_linkPromotion",view.device.linkpromotion);               
+        this.startPage(intent);
+                                
     }
 };
