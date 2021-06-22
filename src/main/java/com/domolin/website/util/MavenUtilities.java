@@ -14,7 +14,7 @@ import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.apache.maven.shared.invoker.PrintStreamLogger;
 
 public class MavenUtilities {    
-    public static void executeMavenCommand(File proyectHome,Properties properties ) throws MavenInvocationException, IOException{
+    public static void executeMavenCommand(File proyectHome,Properties properties,String goals) throws MavenInvocationException, IOException{
         if(!proyectHome.exists())
             throw new MavenInvocationException("El proyecto en la ["+proyectHome.getAbsolutePath()+"] no existe");
         if(System.getenv("M2_HOME") == null)
@@ -27,15 +27,13 @@ public class MavenUtilities {
         InvocationRequest request = new DefaultInvocationRequest();
         request.setOffline(false);
         request.setDebug(false);
-        System.out.println("Ruta Proyecto: " + proyectHome.getAbsolutePath());
         request.setBaseDirectory(proyectHome);
 //        request.setGoals(Arrays.asList("clean", "package"));
-        request.setGoals(Arrays.asList("package"));
+        request.setGoals(Arrays.asList("-q",goals,"-DskipTests"));
         request.setProperties(properties);
 
         Invoker invoker = new DefaultInvoker();
         invoker.setMavenExecutable(mavenFile);
-        System.out.println("Ruta Maven: "+mavenFile.getParentFile().getAbsolutePath());
         invoker.setLogger(new PrintStreamLogger());
         InvocationResult invocationResult = invoker.execute(request);
         if(invocationResult.getExitCode()==1)
