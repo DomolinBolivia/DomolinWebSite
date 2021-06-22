@@ -162,11 +162,13 @@
                 textSize="20px"
                 singleLine="true"/>
             <FlowLayout
+                id="flowDevices"
                 marginTop="10px"
                 marginLeft="100px"
                 marginRight="100px"
                 width="match_parent"
                 height="wrap_content">
+                <!--
                 <LinkButton
                     drawableTop="pages/home/imgs/ic_rgb.png"
                     marginLeft="30px"
@@ -205,7 +207,7 @@
                     iconWidth="100px"
                     iconHeight="100px"
                     text="Interruptor RGB tactil"
-                    singleLine="false"/>
+                    singleLine="false"/> -->
             </FlowLayout>
         </LinearLayout>
     </LinearLayout>

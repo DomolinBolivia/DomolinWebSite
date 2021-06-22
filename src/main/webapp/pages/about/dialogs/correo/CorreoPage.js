@@ -64,7 +64,7 @@ class CorreoPage extends Dialog {
 
     async onClickSubmitFile() {
         let linAdjuntos = this.findViewById("linAdjuntos");
-        let result = await FileChooser.showSelectFile(".pdf, .png, .jpg, .jpeg, .gif, .txt ,.zip");
+        let result = await FileChooser.showSelectFile(".pdf, .png, .jpg, .jpeg, .gif, .txt , .zip");
         if (result) {
             let extend = result.fileExt;
             let fileItem = result.dataInBase64;
