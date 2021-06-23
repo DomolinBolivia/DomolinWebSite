@@ -21,7 +21,7 @@ class DetailDevicePage extends Page {
 
         let imgIcon = this.findViewById('imgIcon');
         await imgIcon.setBackground('pages/detail_device/img/bg_emply.9.png');
-        await imgIcon.setImageResource(`data:image/${listDevicesFile[0].iconFormat};base64,${listDevicesFile[0].iconBase64}`);
+//        await imgIcon.setImageResource(`data:image/${listDevicesFile[0].iconFormat};base64,${listDevicesFile[0].iconBase64}`);
 
         let flowList = this.findViewById('flowList');
         

@@ -117,7 +117,7 @@ class HomePage extends Page {
         let listDevices = httpRes.getJson();
         let flowDevices = this.findViewById('flowDevices');
         for(let device of listDevices){
-            
+            console.log("Device",device);
             let btnDevice = new LinkButton(this);
             btnDevice.device = device;
             await btnDevice.setText(device.name);
@@ -130,23 +130,22 @@ class HomePage extends Page {
             await btnDevice.setMarginRight('30px');
             await btnDevice.setIconWidth('100px');
             await btnDevice.setIconHeight('100px');
-            btnDevice.setOnClickListener('onClickDevice');
+            btnDevice.setOnClickListener(this.onClickDevice);
             await btnDevice.setDrawableTop(`data:image/${iconResult.iconFormat};base64, ${iconResult.iconBase64}`);
             await flowDevices.addView(btnDevice);
         }                         
     }
     async onClickDevice(view){
-        
+        console.log("Device",view.device);
         //await Toast.makeText(this.getContext(),'DISP: '+view.device.code,Toast.LENGTH_SHORT);
         await Resource.import("pages/detail_device/DetailDevicePage.js");
         let intent = new Intent(this,"DetailDevicePage");
         intent.putExtra("device_id",view.device.id);
         intent.putExtra("device_code",view.device.code);
         intent.putExtra("device_name",view.device.name);
-        intent.putExtra("device_description",view.device.description);              
+        intent.putExtra("device_description",view.device.description);
         intent.putExtra("device_linkInstalation",view.device.linkinstalation);
-        intent.putExtra("device_linkPromotion",view.device.linkpromotion);               
-        this.startPage(intent);
-                                
+        intent.putExtra("device_linkPromotion",view.device.linkpromotion);
+        await this.startPage(intent);
     }
 };
