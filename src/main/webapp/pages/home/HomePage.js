@@ -117,11 +117,9 @@ class HomePage extends Page {
         let listDevices = httpRes.getJson();
         let flowDevices = this.findViewById('flowDevices');
         for(let device of listDevices){
-            console.log("Device",device);
             let btnDevice = new LinkButton(this);
             btnDevice.device = device;
             await btnDevice.setText(device.name);
-        
         
             let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${device.code}`);
             let httpResIcon = await httpReqIcon.execute();

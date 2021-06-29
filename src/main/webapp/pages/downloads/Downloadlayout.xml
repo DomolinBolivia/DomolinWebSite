@@ -75,7 +75,7 @@
                     <RelativeLayout>
                         <ImageView
                             id="imgDownloadAppWindows"
-                            src="pages/downloads/imgs/ic_windows.png"
+                            src="pages/downloads/imgs/ic_windows.svg"
                             width="80px"
                             height="70px"/>
                         <LinkButton
@@ -93,6 +93,7 @@
                     </RelativeLayout>
                 </LinearLayout>
                 <Button
+                    iconSize="20px"
                     marginTop="20px"
                     text="Descargar"
                     layoutGravity="center_horizontal"
@@ -124,7 +125,7 @@
                     <RelativeLayout>
                         <ImageView
                             id="imgDownloadAppWindows"
-                            src="pages/downloads/imgs/ic_linux.png"
+                            src="pages/downloads/imgs/ic_linux.svg"
                             width="80px"
                             height="70px" />
                         <LinkButton
@@ -142,6 +143,7 @@
                     </RelativeLayout>
                 </LinearLayout>
                 <Button
+                    iconSize="20px"
                     marginTop="20px"
                     text="Descargar"
                     layoutGravity="center_horizontal"
