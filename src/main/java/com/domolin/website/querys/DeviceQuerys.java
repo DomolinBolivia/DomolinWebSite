@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.domolin.website.querys;
 
 import com.domolin.database.annot.JpqlQuery;
@@ -28,4 +23,7 @@ public interface DeviceQuerys {
     
     @JpqlQuery(queryName = Device.Q_DEVICE_FROM_FOTO_REAL)
     public FileColumn getFotoRealDevice(@SqlParam("id") Long id );
+    
+    @JpqlQuery(queryName = Device.Q_DEVICE_FROM_DATASHET)
+    public FileColumn getDataShet(@SqlParam("id") Long id );
 }

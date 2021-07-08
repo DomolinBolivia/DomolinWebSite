@@ -1,14 +1,11 @@
 class DetailDevicePage extends Page {
 
     async onStart() {
-               
+                           
         let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${this.code}`);
         let httpResIcon = await httpReqIcon.execute();
         let iconResult = httpResIcon.getJson();
-        
-        console.log('linkInstalation', this.linkInstalation);
-        console.log('linkPromotion', this.linkPromotion);
-        
+                        
         let texticon = this.findViewById("deviceimg");        
         await texticon.setImageResource(`data:image/${iconResult.iconFormat};base64, ${iconResult.iconBase64}`);        
 
@@ -51,7 +48,7 @@ class DetailDevicePage extends Page {
         
         this.findViewById('viewYouIns').setUrl(this.linkInstalation);
         this.findViewById('viewYouProm').setUrl(this.linkPromotion);
-
+                
     }
 
     async onCreate(intent) {
@@ -70,9 +67,16 @@ class DetailDevicePage extends Page {
         await imgIcon.setImageResource(`data:image/${view.deviceFile.iconFormat};base64,${view.deviceFile.iconBase64}`);
     }
     
-   async onClickAtraz(view){
+   async onClickFinish(){
        this.finish();
    }
+   
+   async onClickDownloadPdf(){      
+ 
+
+window.open(`services/device/getDataShet?id=${this.id}`);
+   }
+   
 }
 ;
 

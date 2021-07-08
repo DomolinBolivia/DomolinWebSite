@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.domolin.website.facade;
 
 import com.domolin.database.DBConnector;
@@ -10,6 +5,7 @@ import com.domolin.database.entities.types.FileColumn;
 import com.domolin.database.error.NoFountRepoException;
 import com.domolin.website.querys.DeviceQuerys;
 import com.domolin.website.services.pojo.DevicePojo;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +44,13 @@ public class DevicesFacade {
         map.put("iconBase64", fileColumn.readDataInBase64());
         map.put("iconFormat", fileColumn.getFileType());
         return map ;
+    }
+    
+    public File getDataShet(Long id) throws NoFountRepoException, IOException{
+        DeviceQuerys deviceQuerys = dBConnector.getQueryRepository(DeviceQuerys.class);
+        FileColumn fileColumn = deviceQuerys.getDataShet(id);
+        return fileColumn.toFile();
+        
     }
                 
 }
