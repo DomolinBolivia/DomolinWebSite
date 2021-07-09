@@ -13,7 +13,7 @@ public interface SentinelAppQuerys {
     @SqlNativeQuery(type = BigInteger.class, sql = "SELECT nextval('code_sequence')")
     public BigInteger generateCode();
     
-    @JpqlQuery(queryName = SentinelApp.Q_SENTAPP_BY_CODE,entityGraph = SentinelApp.G_SENTAPP_ONLY_ROW)
+    @JpqlQuery(query = "SELECT sa FROM SentinelApp sa WHERE sa.code=:code")
     public SentinelApp findByCode(@SqlParam("code") String code);
     
     @PersistEntity

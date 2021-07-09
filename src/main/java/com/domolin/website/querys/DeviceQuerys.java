@@ -9,7 +9,6 @@ import com.domolin.database.annot.JpqlQuery;
 import com.domolin.database.annot.QueryRepository;
 import com.domolin.database.annot.SqlNativeQuery;
 import com.domolin.database.annot.SqlParam;
-import com.domolin.database.entities.Device;
 import com.domolin.database.entities.types.FileColumn;
 import com.domolin.website.services.pojo.DevicePojo;
 import java.util.List;
@@ -23,9 +22,9 @@ public interface DeviceQuerys {
     @SqlNativeQuery(sql = "SELECT id,name,code,description,link_instalation as linkinstalation ,link_promotion as linkpromotion FROM device limit 5", type = DevicePojo.class)
     public List<DevicePojo> getDevice();
     
-    @JpqlQuery(queryName = Device.Q_DEVICE_FROM_CODE)
+    @JpqlQuery(query = "SELECT d.icon FROM Device d WHERE d.code=:code")
     public FileColumn getIconDevice(@SqlParam("code") String code);
     
-    @JpqlQuery(queryName = Device.Q_DEVICE_FROM_FOTO_REAL)
+    @JpqlQuery(query = "SELECT d.realPhoto FROM Device d WHERE d.id=:id")
     public FileColumn getFotoRealDevice(@SqlParam("id") Long id );
 }
