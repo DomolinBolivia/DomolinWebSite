@@ -1,20 +1,17 @@
 class DetailDevicePage extends Page {
 
     async onStart() {
-               
+
         let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${this.code}`);
         let httpResIcon = await httpReqIcon.execute();
         let iconResult = httpResIcon.getJson();
-        
-        console.log('linkInstalation', this.linkInstalation);
-        console.log('linkPromotion', this.linkPromotion);
-        
-        let texticon = this.findViewById("deviceimg");        
-        await texticon.setImageResource(`data:image/${iconResult.iconFormat};base64, ${iconResult.iconBase64}`);        
+
+        let texticon = this.findViewById("deviceimg");
+        await texticon.setImageResource(`data:image/${iconResult.iconFormat};base64, ${iconResult.iconBase64}`);
 
         let descIcon = this.findViewById("descIcon");
         await descIcon.setText(this.name);
-                
+
         let httpReq = new HttpGet(`services/deviceFile/getDeviceFile?id=${this.id}`);
         let httpRes = await httpReq.execute();
         let listDevicesFile = httpRes.getJson();
@@ -24,7 +21,7 @@ class DetailDevicePage extends Page {
 //        await imgIcon.setImageResource(`data:image/${listDevicesFile[0].iconFormat};base64,${listDevicesFile[0].iconBase64}`);
 
         let flowList = this.findViewById('flowList');
-        
+
         for (let deviceFile of listDevicesFile)
         {
             let btnDevice = new LinkButton(this);
@@ -41,14 +38,14 @@ class DetailDevicePage extends Page {
         let fotoRealResult = httpResFotoReal.getJson();
 
         let deviceFoto = this.findViewById('deviceFoto');
-        let deviceFotoReal = this.findViewById('deviceFotoReal');       
-        await deviceFotoReal.setText(this.description);        
-        await deviceFotoReal.setDrawableLeft(`data:image/${fotoRealResult.iconFormat};base64, ${fotoRealResult.iconBase64}`);                                                   
+        let deviceFotoReal = this.findViewById('deviceFotoReal');
+        await deviceFotoReal.setText(this.description);
+        await deviceFotoReal.setDrawableLeft(`data:image/${fotoRealResult.iconFormat};base64, ${fotoRealResult.iconBase64}`);
         await deviceFoto.addView(deviceFotoReal);
-     
+
         let descCodigo = this.findViewById("descCodigo");
         await descCodigo.setText(this.code);
-        
+
         this.findViewById('viewYouIns').setUrl(this.linkInstalation);
         this.findViewById('viewYouProm').setUrl(this.linkPromotion);
 
@@ -61,7 +58,7 @@ class DetailDevicePage extends Page {
         this.name = intent.getExtra("device_name");
         this.description = intent.getExtra("device_description");
         this.linkInstalation = intent.getExtra("device_linkInstalation");
-        this.linkPromotion = intent.getExtra("device_linkPromotion");        
+        this.linkPromotion = intent.getExtra("device_linkPromotion");
     }
     async onClickDevice(view) {
         console.log(view.deviceFile);
@@ -69,11 +66,13 @@ class DetailDevicePage extends Page {
         await imgIcon.setBackground('pages/detail_device/img/bg_emply.9.png');
         await imgIcon.setImageResource(`data:image/${view.deviceFile.iconFormat};base64,${view.deviceFile.iconBase64}`);
     }
-    
-   async onClickAtraz(view){
-       this.finish();
-   }
+
+    async onClickFinish() {
+        this.finish();
+    }
+
+    async onClickDownloadPdf() {
+        window.open(`services/device/getDataShet?id=${this.id}`);
+    }
 }
 ;
-
-

@@ -20,7 +20,7 @@ class HomePage extends Page {
         this.setContentView("pages/home/HomeLayout.xml");
         this.fotoActual = 1;
         this.NRO_IMAGENES = 4;
-        this.timerFotos = new Timer();
+        this.timerFotos = new Timer(); 
     }
 
     // @Override
