@@ -139,11 +139,11 @@ class HomePage extends Page {
         await Resource.import("pages/detail_device/DetailDevicePage.js");
         let intent = new Intent(this,"DetailDevicePage");
         intent.putExtra("device_id",view.device.id);
-        intent.putExtra("device_code",view.device.code);
-        intent.putExtra("device_name",view.device.name);
-        intent.putExtra("device_description",view.device.description);
-        intent.putExtra("device_linkInstalation",view.device.linkinstalation);
-        intent.putExtra("device_linkPromotion",view.device.linkpromotion);
+//        intent.putExtra("device_code",view.device.code);
+//        intent.putExtra("device_name",view.device.name);
+//        intent.putExtra("device_description",view.device.description);
+//        intent.putExtra("device_linkInstalation",view.device.linkinstalation);
+//        intent.putExtra("device_linkPromotion",view.device.linkpromotion);
         await this.startPage(intent);
     }
 };

@@ -54,11 +54,11 @@ class DetailDevicePage extends Page {
     async onCreate(intent) {
         this.setContentView("pages/detail_device/DetailDeviceLayout.xml");
         this.id = intent.getExtra("device_id");
-        this.code = intent.getExtra("device_code");
-        this.name = intent.getExtra("device_name");
-        this.description = intent.getExtra("device_description");
-        this.linkInstalation = intent.getExtra("device_linkInstalation");
-        this.linkPromotion = intent.getExtra("device_linkPromotion");
+//        this.code = intent.getExtra("device_code");
+//        this.name = intent.getExtra("device_name");
+//        this.description = intent.getExtra("device_description");
+//        this.linkInstalation = intent.getExtra("device_linkInstalation");
+//        this.linkPromotion = intent.getExtra("device_linkPromotion");
     }
     async onClickDevice(view) {
         console.log(view.deviceFile);

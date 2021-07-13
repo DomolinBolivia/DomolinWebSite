@@ -20,12 +20,14 @@ public interface DeviceQuerys {
     @JpqlQuery(query = "SELECT d.icon FROM Device d WHERE d.code=:code")
     public FileColumn getIconDevice(@SqlParam("code") String code);
     
-    // SELECT d.realPhoto FROM Device d WHERE d.id=:id
-            
+    // SELECT d.realPhoto FROM Device d WHERE d.id=:id            
             
     @JpqlQuery(query = "SELECT d.realPhoto FROM Device d WHERE d.id=:id")
     public FileColumn getFotoRealDevice(@SqlParam("id") Long id );
     
     @JpqlQuery(query = "SELECT d.dataShet FROM Device d WHERE d.id=:id")
     public FileColumn getDataShet(@SqlParam("id") Long id );
+    
+    @SqlNativeQuery(sql = "SELECT id,name,code,description,link_instalation as linkinstalation ,link_promotion as linkpromotion FROM device d WHERE d.id=:id", type = DevicePojo.class)
+    public List<DevicePojo> getDeviceInf();
 }
