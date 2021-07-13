@@ -28,9 +28,9 @@ public class DevicesFacade {
         return deviceQuerys.getDevice();
     }
     
-    public HashMap<String,Object> getIconDevice(String code) throws NoFountRepoException, IOException{
+    public HashMap<String,Object> getIconDevice(Long idDevice) throws NoFountRepoException, IOException{
         DeviceQuerys deviceQuerys = dBConnector.getQueryRepository(DeviceQuerys.class);
-        FileColumn fileColumn = deviceQuerys.getIconDevice(code);
+        FileColumn fileColumn = deviceQuerys.getIconDevice(idDevice);
         HashMap<String,Object> map = new HashMap<>();
         map.put("iconBase64", fileColumn.readDataInBase64());
         map.put("iconFormat", fileColumn.getFileType());

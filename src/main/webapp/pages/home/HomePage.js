@@ -121,7 +121,7 @@ class HomePage extends Page {
             btnDevice.device = device;
             await btnDevice.setText(device.name);
         
-            let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${device.code}`);
+            let httpReqIcon = new HttpGet(`services/device/getIconDevice?id=${device.id}`);
             let httpResIcon = await httpReqIcon.execute();
             let iconResult = httpResIcon.getJson();
             await btnDevice.setMarginLeft('30px');

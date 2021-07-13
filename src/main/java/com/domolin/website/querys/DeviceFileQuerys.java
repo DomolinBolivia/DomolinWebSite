@@ -24,7 +24,7 @@ public interface DeviceFileQuerys {
 //    @JpqlQuery(queryName = DeviceFile.Q_DEVICEFILE_FROM_ID)
 //    public List<DeviceFilePojo> getDeviceFile(@SqlParam("id") Long id);
     
-    @JpqlQuery(query = "SELECT d.file FROM ProductFile d JOIN d.product c WHERE c.id =:id")
-    public List<FileColumn> getDeviceFile(@SqlParam("id") Long id);
+    @JpqlQuery(query = "SELECT d.file FROM ProductFile d WHERE d.fidProduct =:id")
+    public List<FileColumn> getDeviceFile(@SqlParam("id") Long idDevice);
     
 }

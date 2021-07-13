@@ -39,8 +39,8 @@ public class DevicesRest extends BaseRest {
     @GET
     @Path("/getIconDevice")
     @Produces(MediaType.APPLICATION_JSON)
-    public HashMap<String, Object> getIconDevice(@QueryParam("code") String code) throws NoFountRepoException, IOException {
-        return ImagsFacade.getIconDevice(code);
+    public HashMap<String, Object> getIconDevice(@QueryParam("id") Long id) throws NoFountRepoException, IOException {
+        return ImagsFacade.getIconDevice(id);
     }
 
     @GET
@@ -63,7 +63,5 @@ public class DevicesRest extends BaseRest {
         FileInputStream entrada= new FileInputStream(archivo);
         entrada.transferTo(salida);        
         salida.flush();
-                                      
     }
-
 }

@@ -17,8 +17,8 @@ public interface DeviceQuerys {
     @SqlNativeQuery(sql = "SELECT id,name,code,description,link_instalation as linkinstalation ,link_promotion as linkpromotion FROM device limit 5", type = DevicePojo.class)
     public List<DevicePojo> getDevice();
     
-    @JpqlQuery(query = "SELECT d.icon FROM Device d WHERE d.code=:code")
-    public FileColumn getIconDevice(@SqlParam("code") String code);
+    @JpqlQuery(query = "SELECT d.icon FROM Device d WHERE d.id=:id")
+    public FileColumn getIconDevice(@SqlParam("id") Long id);
     
     // SELECT d.realPhoto FROM Device d WHERE d.id=:id            
             

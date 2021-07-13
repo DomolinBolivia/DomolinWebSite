@@ -2,7 +2,7 @@ class DetailDevicePage extends Page {
 
     async onStart() {
 
-        let httpReqIcon = new HttpGet(`services/device/getIconDevice?code=${this.code}`);
+        let httpReqIcon = new HttpGet(`services/device/getIconDevice?id=${this.id}`);
         let httpResIcon = await httpReqIcon.execute();
         let iconResult = httpResIcon.getJson();
 
@@ -22,13 +22,12 @@ class DetailDevicePage extends Page {
 
         let flowList = this.findViewById('flowList');
 
-        for (let deviceFile of listDevicesFile)
-        {
+        for (let deviceFile of listDevicesFile){
             let btnDevice = new LinkButton(this);
             btnDevice.deviceFile = deviceFile;
             await btnDevice.setIconWidth('100px');
             await btnDevice.setIconHeight('100px');
-            btnDevice.setOnClickListener('onClickDevice');
+            btnDevice.setOnClickListener(this.onClickDevice);
             await btnDevice.setDrawableTop(`data:image/${deviceFile.iconFormat};base64, ${deviceFile.iconBase64}`);
             await flowList.addView(btnDevice);
         }
@@ -49,6 +48,8 @@ class DetailDevicePage extends Page {
         this.findViewById('viewYouIns').setUrl(this.linkInstalation);
         this.findViewById('viewYouProm').setUrl(this.linkPromotion);
 
+        if(flowList.getChildCount()>0)
+            await this.onClickDevice(flowList.getChildAt(0));
     }
 
     async onCreate(intent) {
